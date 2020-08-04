@@ -5,14 +5,14 @@ $(document).ready(function() {
 // Obtain and display search criteria on navbar with class searchDeposit
 // The criteria is contained inside input with class searchWeather
 
-var cityST = $('#cityST');
+var city = $('#city');
 var submit = $('.submitSearch');
 var deposit = $('.searchDeposit');
-var searchCityST = $('#searchCityST')
+var searchCity = $('#searchCity');
+var searchCityClass = $('.searchCity');
     
 
-
-// Appends search into top bar
+// Establishes Event Listener Function
 submit.on('click', function(){
 
     event.preventDefault();
@@ -22,33 +22,58 @@ submit.on('click', function(){
 })
 
 
+// Create City, ST object with array
+citySTObj = {
+    citySTArray: [],
+};
 
-citySTObj = {};
 
+// Appends City, ST value into top bar
 function appendCity() {
 
     event.preventDefault();
-    deposit.append('<div class="d-inline ml-4">' + searchCityST.val() + '</div>');
+    deposit.append('<div class="d-inline ml-4">' + searchCity.val() + '</div>');
     var result = searchCityST.val();
-    citySTObj.push(result);
+    citySTObj.citySTArray.push(result);
+
 }
+
+
 console.log(citySTObj);
 
-
+// Creates key and value with array within object (multiple city entries)
 function addKey() {
 
-    var value = searchCityST.val()
-    console.log(value);
-    var key = cityST;
+    var key = searchCitySTClass.parent().attr("id");
     console.log(key);
+    var value = citySTObj.citySTArray;
+    console.log(value);
     localStorage.setItem(key, value);
 
 }
 
 
+// Query URL to pull city data
+
+queryURL = 'http://pro.openweathermap.org/data/2.5/forecast/hourly?q=' + city name}&appid={your api key}
+
+// AJAX call 
+
+$.ajax({
+    url: queryURL,
+    method: "GET"
+  }).then(function(response) {
+    $("#movie-view").text(JSON.stringify(response));
+  });
 
 
-// Obtain the AJAX for OpenWeather
-// Include Search's AJAX details into appendCity();
+
+
+
+
+
+
+
+
 
 })
