@@ -1,0 +1,9 @@
+.headerStyle {
+    background-color: rgb(1, 75, 160);
+    color: white;
+}
+
+.openWeatherImage {
+    width: 50px;
+    height: auto;
+}
