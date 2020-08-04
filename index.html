@@ -2,50 +2,82 @@
 
 <html lang="en">
 
-
 <head>
+    <!-- Meta tags go here -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta name="Description" content="Weather Widget" />
 
-<!-- Meta tags go here -->
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta http-equiv="X-UA-Compatible" content="ie=edge">
-<meta name="Description" content="Weather Widget">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" />
+    <link rel="stylesheet" href="assets/css/style.css" />
 
-
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
-<link rel="stylesheet" href="assets/css/style.css">
-
-
-<title>Traveler Weather Widget</title>
-
+    <title>Traveler Weather Widget</title>
 </head>
 
 <body>
+    <!-- Header -->
+    <header class="header headerStyle" id="header">
+        <h1 class="title col-md-6 mx-auto pt-3 text-center textShadow" id="title">
+            Weather Forecast
+        </h1>
+        <p class="slogan col-md-6 mx-auto text-center" id="slogan">
+            #1 weather source for travelers
+        </p>
+        <div class="row">
+            <div class="col-6 mx-auto text-center pb-3">
+                <div class="col-md-6 d-inline fontSmall alignBottom">
+                    Powered by OpenWeather
+                </div>
+                <div class="col-md-6 d-inline">
+                    <img src="https://openweathermap.org/themes/openweathermap/assets/img/logo_white_cropped.png"
+                        class="openWeatherImage" />
+                </div>
+            </div>
+        </div>
+    </header>
 
-<header class="header headerStyle shadow" id="header">
-
-    <h1 class="title col-md-6 mx-auto pt-3 text-center" id="title">Weather Dashboard</h1>
-    <h5 class="slogan col-md-6 mx-auto text-center" id="slogan">#1 weather source for travelers</h5>
-    <h6 class="col-md-6 mx-auto pb-3 text-center" id="">Powered by OpenWeather <img src="https://openweathermap.org/themes/openweathermap/assets/img/logo_white_cropped.png" class="openWeatherImage"></h6>
-
-</header>
+    <!-- Search Results Go Here -->
+    <div class="navbar text-center shadow headerStyle navbarLocal searchDeposit" id="searchDeposit">
+        <div class="mx-auto">Search Results Go Here</div>
+    </div>
 
 
+    <!-- Main Contents Container -->
+    <div class="container">
 
+        <div class="row">
 
+            <!-- Search form column -->
+            <div class="col-md-4 text-center" id="searchArea">
 
+                <form class="searchForm" id="searchForm">
+                    <label for="searchWeather" class="search">City, ST </label>
+                    <input type="text" class="searchWeather" id="searchWeather" />
+                    <button class="btn btn-light submitSearch" id="submitSearch">Search</button>                    
+                </form>
 
+            </div>
+            <div class="col-md-8 mx-auto" id="searchArea">
 
+                <h3 class="welcome" id="welcome">
+                    Welcome to Travel Forecaster
+                </h3>
+                <p>Enter the location that you're interested in obtaining the current weather conditions and forecast. The results will display below this area.</p>
+                <div class="weatherResults" id="weatherResults"></div>
 
+            </div>
 
+        </div>
 
+    </div>
 
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js"></script>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <script src="assets/js/script.js"></script>
 </body>
 
 </html>
