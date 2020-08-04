@@ -12,6 +12,10 @@
     background-color: rgb(51, 138, 238);
 }
 
+.searchDeposit {
+    text-align: left;
+}
+
 .container {
     background-color: aliceblue;
     padding-top: 25px;
