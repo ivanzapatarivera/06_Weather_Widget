@@ -21,7 +21,7 @@
     padding-top: 25px;
 }
 
-.searchCity {
+.searchCity, .searchState {
     border-width: thin;
     border-color: lightblue;
     border-radius: 25px;
@@ -33,6 +33,11 @@
     background-color: transparent;
     font-weight: 600;
     color:  rgb(1, 38, 82);
+}
+
+.mainSeparation {
+    color: rgb(1, 38, 82);
+    width: 5px;
 }
 
 /* Font Section */

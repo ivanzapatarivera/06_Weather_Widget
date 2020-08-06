@@ -10,77 +10,102 @@ var submit = $('.submitSearch');
 var deposit = $('.searchDeposit');
 var searchCity = $('#searchCity');
 var searchCityClass = $('.searchCity');
+var searchState = $('#searchState');
+var searchStateClass = $('.searchState');
 
-
-// Create City, ST object with array
-var cityObj = {
-    cityArray: [],
-};
 
 // Establishes Event Listener Function
 submit.on('click', function(){
 
     event.preventDefault();
     appendCity();
-    //addLocalStorage();
     apiAJAXCall(searchCity.val());
 
     console.log("You searched for city: " + searchCity.val());
 
 })
 
+// Create City, ST object with array
+var cityObj = {
+    cityArray: [],
+    stateArray: [],
+};
+
+
+
 // Appends City value into top bar
+var searchCityST;
 function appendCity() {
 
-    event.preventDefault();
-    deposit.append('<div class="d-inline ml-4 resultCity">' + searchCity.val() + '</div>');
-    var result = searchCity.val().trim();
-    result = result + "-"
-    console.log(result);
+    searchCityST = searchCity.val() + ", " + searchState.val();
+    console.log(searchCityST);
 
 
-    cityObj.cityArray.push(result);
-    console.log(result)
-    addLocalStorage();
-   // resultCity();
+        event.preventDefault();
+        deposit.append('<div class="d-inline ml-4 resultCity">' + searchCityST + '</div>');
 
+    var result = searchCityST;
+        result = result + "-"
+        console.log(result);
+
+        cityObj.cityArray.push(searchCity.val());
+        cityObj.stateArray.push(searchState.val());
+
+
+    //     cityObj.cityArray.push(result);
+    //     console.log(result);
+
+        addLocalStorage();
+        
+  
 }
 
-console.log(cityObj);
+console.log(cityObj.cityArray, cityObj.stateArray);
 
 // Creates key and value with array within object (multiple city entries)
 function addLocalStorage() {
     event.preventDefault();
-    var key = searchCityClass.parent().attr("id");
-     var value = cityObj.cityArray;
+
+    var keyA = searchCityClass.parent().attr("id");
+    var keyB = searchStateClass.parent().attr("id");
+
+    var key = keyA + keyB;
+    var value = searchCityST + "-";
 
     if (localStorage.getItem(key)){
         var addCity = localStorage.getItem(key) + value
         localStorage.setItem(key, addCity);
     } else {
-
- 
         localStorage.setItem(key, value);
-
     }
 }
 
 
- var oldKeyValue = localStorage.getItem('city')
+ var oldKeyValue = localStorage.getItem('cityState')
     oldKeyValue = oldKeyValue.split('-');
     console.log(oldKeyValue);    
     for (var i = 0; i < oldKeyValue.length; i++) {
     deposit.append('<div class="d-inline ml-4 resultCity">' + oldKeyValue[i] + '</div>');
     }
 
+
+
 // Query URL to pull city data
 $('.resultCity').on('click', function() {
     alert("testing saved city")
-
+    var cityStateArray = [];    
     var resultCityText = $(this).text();
-    console.log(resultCityText)
-    apiAJAXCall(resultCityText)
+        resultCityText = resultCityText.split(", ");
+        cityStateArray.push(resultCityText);
+        
+        console.log(resultCityText);
+        console.log(resultCityText[0]);
+        console.log(resultCityText[1]);
+
+        apiAJAXCall(resultCityText[0], resultCityText[1]);
+        console.log(cityStateArray)
 })
+
 
 // Add the dash +
 // city = city + - ++
@@ -89,13 +114,12 @@ $('.resultCity').on('click', function() {
 
 
 // AJAX call 
-function apiAJAXCall(city) {
+function apiAJAXCall(city, country) {
 
 
 var apiKey = '3f0e791b672eddc26b02cdefef533281';
-var queryURL = 'http://api.openweathermap.org/data/2.5/weather?q=' + city + '&appid=' + apiKey;
-api.openweathermap.org/data/2.5/weather?q={city name},{state code}&appid={your api key}
-
+var queryURL = 'http://api.openweathermap.org/data/2.5/weather?q=' + city + "," + country + '&appid=' + apiKey;
+// api.openweathermap.org/data/2.5/weather?q={city name},{state code}&appid={your api key}
 
 $.ajax({
     url: queryURL,
@@ -103,6 +127,7 @@ $.ajax({
   }).then(function(response) {
     console.log(response);
   });
+
 
 }
 
