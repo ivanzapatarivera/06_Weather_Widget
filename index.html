@@ -13,7 +13,17 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" />
     <link rel="stylesheet" href="assets/css/style.css" />
 
+    <!-- Google Fonts link -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <!-- CSS rules to specify families
+
+        font-family: 'Roboto', sans-serif; 
+    
+    -->
+
     <title>Traveler Weather Widget</title>
+
+
 </head>
 
 <body>
@@ -47,7 +57,7 @@
     <!-- Main Contents Container -->
     <div class="container">
 
-        <div class="row">
+        <div class="row cardStyleSearch shadow">
 
             <!-- Search form column (left side) -->
             <div class="col-12 col-sm-5 city">
@@ -85,16 +95,15 @@
                     </div>
                     
                 </div>
-                <!-- <div class="row">  </div> -->
                     
             </div>
 
             <!-- Search results column (right side) -->
             <div class="col-12 col-sm-7 mx-auto pl-5" id="searchArea">
 
-                <h4 class="welcome pt-2" id="welcome">
+                <h2 class="welcome pt-2" id="welcome">
                     Welcome to Travel Forecaster
-                </h4>
+                </h2>
                 <p>Enter the location you're interested in obtaining current weather conditions and forecast. The results will display below this area.</p>
                 <div class="weatherResults" id="weatherResults"></div>
 
@@ -107,62 +116,57 @@
 
         <div class="row">
 
-            <div class="col-12">
+            <div class="col-11 col-sm-4 mx-auto my-5 shadow cardStyleResult">
 
                 
                 <div class="row">
-
                     <!-- Display City Name -->
-                    <div class="cityName col-12 col-sm-6 display-4 mx-auto text-center"></div>
-
+                    <div class="cityName mx-auto mt-1 text-center display-4 text-white"></div>
                 </div>  
                 <div class="row">
-
-                    <!-- Display City Name -->
-                    <div class="cityDate col-12 col-sm-6 pl-2 py-2 mx-auto text-center"></div>
-
-                </div>
-
-                <div class="row">
-
-                    <!-- Display Latitude and Longitud -->
-                    <div class="col-12 col-sm-4 lonLat mx-auto text-center"></div>
-                
-                </div>
-
-                <div class="row">
-
                     <!-- Display Current Weather -->
-                    <div class="col-12 col-sm-4 py-3 mx-auto text-center currentMain"></div>
-
+                    <div class="mx-auto mt-1 text-center currentMain"></div>
                 </div>
-
                 <div class="row">
-
                     <!-- Display Weather Icon -->
-                    <div class="col-12 col-sm-2 mx-auto text-center currentIcon"></div>
-
+                    <div class="mx-auto mt-1 text-center currentIcon"></div>
                 </div>
 
-                <div class="row">
+                <hr class="cardSeparation">
 
+                <div class="row">
+                    <!-- Display Latitude and Longitud -->
+                    <div class="lonLat mt-2 ml-5 text-white"></div>
+                </div>
+                <div class="row">
                     <!-- Display UV Index -->
-                    <div class="col-12 col-sm-6 uvIndex" style="background-color: green;"></div>
-                
+                    <div class="ml-5 text-white uvIndex"></div>
                 </div>
-
                 <div class="row">
-
-                    <div class="col-4">
-                        <p class="temperature"></p>
-                        <p class="feelslike"></p>
-                        <p class="tempmax"></p>
-                        <p class="tempmin"></p>
-                        <p class="humidity"></p>
-                    </div>
-                
+                    <!-- Display temperature -->
+                    <div class="ml-5 text-white temperature"></div>
                 </div>
-
+                <div class="row">
+                    <!-- Display feelslike -->
+                    <div class="ml-5 text-white feelslike"></div>
+                </div>
+                <div class="row">
+                    <!-- Display tempmax -->
+                    <div class="ml-5 text-white tempmax"></div>
+                </div>
+                <div class="row">
+                    <!-- Display tempmin -->
+                    <div class="ml-5 text-white tempmin"></div>
+                </div>
+                <div class="row">
+                    <!-- Display humidity -->
+                    <div class="ml-5 mb-4 text-whitehumidity"></div>
+                </div>
+                <div class="row">
+                    <!-- Display City Name -->
+                    <div class="cityDate mx-auto mb-1 text-white fontSmall"></div>
+                </div>
+             
                 <div class="row">
 
                     <div class="col-4 windDirection"></div>
@@ -170,12 +174,9 @@
                     <div class="col-4 windSpeed"></div>
                     
                 </div>
-
-
-                    <div class="col-3"></div>
-                    
-                </div>
+      
             </div>
+        </div>
 
         </div>
 

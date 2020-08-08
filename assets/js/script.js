@@ -202,14 +202,14 @@ $.ajax({
     console.log(response.weather[0].description);
     var description = response.weather[0].description;
     console.log(description);
-    currentMain.empty().append("The current weather conditions are: " + '<br>' + main + " with " + description + ".");
+    currentMain.empty().append("The current weather conditions are" + '<br>' + main + " with " + description + ".");
 
     console.log(response.weather[0].icon);
     var icon = response.weather[0].icon;
     var iconURL = "http://openweathermap.org/img/w/" + icon + ".png";
     console.log(icon);
     console.log(iconURL);
-    currentIcon.empty().append('<img src="' + iconURL + '">');
+    currentIcon.empty().append('<img src="' + iconURL + '" style="height: 75px; width: auto;">');
 
 
     // Setting temperature and humidity
@@ -241,8 +241,6 @@ $.ajax({
     console.log(humidityP);
     humidity.empty().append("Humidity: " + humidityP);
     
-
-
 
     // Calling for UV query URL 
     var apiKey = '3f0e791b672eddc26b02cdefef533281';
