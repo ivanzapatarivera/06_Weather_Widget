@@ -23,6 +23,7 @@ var country = searchState.val();
     
     // console.log("You searched for city: " + searchCity.val() + ", " + searchState.val() + ".");
     apiAJAXCall(city, country);
+    appendCity();
        
 })
 
@@ -145,7 +146,7 @@ resultCity.on('click', function() {
         // Console log for cityStateArray 
         console.log(cityStateArray);
 
-        cardStyleResult.show();
+        // cardStyleResult.show();
 })
  
 
@@ -292,7 +293,7 @@ $.ajax({
             uvIndex.empty().append('UV Index: ' + responseUV.value);
         })
 
-     appendCity(); 
+      
   });
 
  
