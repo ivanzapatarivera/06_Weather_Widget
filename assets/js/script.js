@@ -14,12 +14,20 @@ var cardStyleResult = $('.cardStyleResult');
 // Establishes Event Listener Function
 submit.on('click', function(){
     event.preventDefault();
+    console.log(searchCity.val());
+var city = searchCity.val();
+    console.log(searchState.val());
+var country = searchState.val();
     cardStyleResult.show();
-    appendCity();
-    apiAJAXCall(searchCity.val(), searchState.val());
-    console.log("You searched for city: " + searchCity.val() + ", " + searchState.val() + ".");
-
+    ajaxAfterCard();
+    // appendCity();    
+    // console.log("You searched for city: " + searchCity.val() + ", " + searchState.val() + ".");
+    // apiAJAXCall(searchCity.val(), searchState.val());
 })
+
+function ajaxAfterCard() {
+    apiAJAXCall(searchCity.val(), searchState.val());
+}
 
 // Create City, ST object with array
 var cityObj = {
@@ -84,6 +92,8 @@ function addLocalStorage() {
     
 
 // Retrieven the value of the last search
+
+if (oldKeyValue) {
 var localStorageArray = [];
     console.log(localStorageArray);
     localStorageArray = oldKeyValue;
@@ -96,17 +106,22 @@ var lastLocalStorageResult = localStorageArray.pop();
     lastLocalStorageResult = lastLocalStorageResult.split(", ");
     console.log(lastLocalStorageResult)
 
-if (lastLocalStorageResult) {
-    cardStyleResult.show();
-}
+    if (lastLocalStorageResult) {
+        cardStyleResult.show();
+    }
 
     console.log(lastLocalStorageResult[0]);
     console.log(lastLocalStorageResult[1]);
     apiAJAXCall(lastLocalStorageResult[0], lastLocalStorageResult[1]);
 
+} else {
+
+}
+
 // Query URL to pull city data
 var resultCity = $('.resultCity');
 var cityName = $('.cityName');
+
 resultCity.on('click', function() {
     event.preventDefault();
     console.log("These are the results for: " + resultCity.text());
