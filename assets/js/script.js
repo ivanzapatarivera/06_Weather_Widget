@@ -9,16 +9,15 @@ var labelCityClass = $('.labelCity');
 var searchState = $('#searchState');
 var searchStateClass = $('.searchState');
 var labelStateClass = $('.labelState');
-
+var cardStyleResult = $('.cardStyleResult');
 
 // Establishes Event Listener Function
 submit.on('click', function(){
-
     event.preventDefault();
+    cardStyleResult.show();
     appendCity();
-    apiAJAXCall(searchCity.val());
-
-    console.log("You searched for city: " + searchCity.val());
+    apiAJAXCall(searchCity.val(), searchState.val());
+    console.log("You searched for city: " + searchCity.val() + ", " + searchState.val() + ".");
 
 })
 
@@ -71,6 +70,8 @@ function addLocalStorage() {
     } else {
         localStorage.setItem(key, value);
     }
+
+
 }
 
 // Append recent searches onto top bar
@@ -80,13 +81,34 @@ function addLocalStorage() {
     for (var i = 0; i < oldKeyValue.length; i++) {
     deposit.append('<div class="d-inline ml-4 resultCity">' + oldKeyValue[i] + '</div>');
     }
+    
 
+// Retrieven the value of the last search
+var localStorageArray = [];
+    console.log(localStorageArray);
+    localStorageArray = oldKeyValue;
+    console.log(localStorageArray);
+    localStorageArray.pop();
+    console.log(localStorageArray);
 
+var lastLocalStorageResult = localStorageArray.pop();
+    console.log(lastLocalStorageResult);
+    lastLocalStorageResult = lastLocalStorageResult.split(", ");
+    console.log(lastLocalStorageResult)
+
+if (lastLocalStorageResult) {
+    cardStyleResult.show();
+}
+
+    console.log(lastLocalStorageResult[0]);
+    console.log(lastLocalStorageResult[1]);
+    apiAJAXCall(lastLocalStorageResult[0], lastLocalStorageResult[1]);
 
 // Query URL to pull city data
 var resultCity = $('.resultCity');
 var cityName = $('.cityName');
 resultCity.on('click', function() {
+    event.preventDefault();
     console.log("These are the results for: " + resultCity.text());
     
     // Created array to get values from search entries
@@ -107,7 +129,9 @@ resultCity.on('click', function() {
         apiAJAXCall(resultCityText[0], resultCityText[1]);
 
         // Console log for cityStateArray 
-        console.log(cityStateArray)
+        console.log(cityStateArray);
+
+        cardStyleResult.show();
 })
  
 
@@ -215,25 +239,25 @@ $.ajax({
     // Setting temperature and humidity
     console.log(response.main.temp);
     var temp = response.main.temp;
-    var tempConversion = Math.floor((9 / 5) * (temp - 273) + 32) + " °F";
+    var tempConversion = Math.floor((9 / 5) * (temp - 273) + 32) + "°F";
     console.log(tempConversion);
     temperature.empty().append("Current temperature: " + tempConversion);
 
     var feels_like = response.main.feels_like;
     console.log(response.main.feels_like);
-    var flConversion = Math.floor((9 / 5) * (feels_like - 273) + 32) + " °F";
+    var flConversion = Math.floor((9 / 5) * (feels_like - 273) + 32) + "°F";
     console.log(flConversion);
     feelslike.empty().append("Feels like: " + flConversion);
 
     var max = response.main.temp_max;
     console.log(response.main.temp_max);
-    var maxConversion = Math.floor((9 / 5) * (max - 273) + 32) + " °F";
+    var maxConversion = Math.floor((9 / 5) * (max - 273) + 32) + "°F";
     console.log(maxConversion);
     tempmax.empty().append("Maximum Temperature: " + maxConversion);
 
     var min = response.main.temp_min;
     console.log(response.main.temp_min); 
-    var minConversion = Math.floor((9 / 5) * (min - 273) + 32) + " °F";
+    var minConversion = Math.floor((9 / 5) * (min - 273) + 32) + "°F";
     console.log(minConversion);
     tempmin.empty().append("Minimum Temperature: " + minConversion);
 
@@ -260,5 +284,8 @@ $.ajax({
 
 }
 
+function cardStyleResult() {
+    $('.cardStyleResult').show();
+}
 
 })
