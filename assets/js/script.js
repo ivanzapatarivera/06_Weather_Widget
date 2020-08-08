@@ -237,9 +237,9 @@ $.ajax({
     console.log(minConversion);
     tempmin.empty().append("Minimum Temperature: " + minConversion);
 
-    var humidity = (response.main.humidity) + "%";
-    console.log(humidity);
-    humidity.empty().append("Humidity: " + humidity);
+    var humidityP = (response.main.humidity) + "%";
+    console.log(humidityP);
+    humidity.empty().append("Humidity: " + humidityP);
     
 
 
