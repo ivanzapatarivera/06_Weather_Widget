@@ -49,26 +49,48 @@
 
         <div class="row">
 
-            <!-- Search form column -->
-            <div class="col-sm-4 city">
+            <!-- Search form column (left side) -->
+            <div class="col-12 col-sm-5 city">
 
+                <!-- Labels and Input elements for search -->
                 <div class="row">
 
-                    <div class="col-sm-12" id="city"><label for="searchCity" class="labelSearch ml-1 pt-3">City: </label><input type="text" class="searchCity ml-4" id="searchCity"></input></div>
-                    <div class="col-sm-8"></div>
+                    <!-- City Label and input elements -->
+                    <div class="col-12 col-sm-4 text-center" id="city">
+                        <label for="searchCity" class="labelCity pt-3">City: </label>
+                    </div>
+                    <div class="col-12 col-sm-8 pt-3 text-center">
+                        <input type="text" class="searchCity" id="searchCity"></input>
+                    </div>
+                    
 
                 </div>
                 <div class="row">
 
-                    <div class="col-sm-12" id="State"><label for="searchState" class="labelSearch ml-1 pt-3">Country: </label><input type="text" class="searchState ml-3" id="searchState"></input>
-                    <button class="btn btn-light ml-sm-auto mx-auto mr-5 submitSearch" id="submitSearch">Search</button></div>
+                    <!-- State / Country elements --> 
+                    <div class="col-12 col-sm-4 text-center" id="State">
+                        <label for="searchState" class="labelState pt-3">State / Country: </label>
+                    </div>
+                    <div class="col-12 col-sm-8 pt-3 text-center">
+                        <input type="text" class="searchState" id="searchState"></input>
+                    </div>                   
+                    
+                    
+                </div>
+
+                <div class="row">
+
+                    <div class="col-12 col-sm-3 text-center" id="State">
+                        <button class="btn btn-light px-5 mt-4 submitSearch shadow-sm" id="submitSearch">Search</button>
+                    </div>
+                    
                 </div>
                 <!-- <div class="row">  </div> -->
                     
             </div>
 
-            <!-- Search results column -->
-            <div class="col-sm-8 mx-auto pl-5" id="searchArea">
+            <!-- Search results column (right side) -->
+            <div class="col-12 col-sm-7 mx-auto pl-5" id="searchArea">
 
                 <h4 class="welcome pt-2" id="welcome">
                     Welcome to Travel Forecaster
@@ -78,6 +100,82 @@
 
             </div>
             <hr class="mainSeparation">
+
+        </div>
+
+
+
+        <div class="row">
+
+            <div class="col-12">
+
+                
+                <div class="row">
+
+                    <!-- Display City Name -->
+                    <div class="cityName col-12 col-sm-6 display-4 mx-auto text-center"></div>
+
+                </div>  
+                <div class="row">
+
+                    <!-- Display City Name -->
+                    <div class="cityDate col-12 col-sm-6 pl-2 py-2 mx-auto text-center"></div>
+
+                </div>
+
+                <div class="row">
+
+                    <!-- Display Latitude and Longitud -->
+                    <div class="col-12 col-sm-4 lonLat mx-auto text-center"></div>
+                
+                </div>
+
+                <div class="row">
+
+                    <!-- Display Current Weather -->
+                    <div class="col-12 col-sm-4 py-3 mx-auto text-center currentMain"></div>
+
+                </div>
+
+                <div class="row">
+
+                    <!-- Display Weather Icon -->
+                    <div class="col-12 col-sm-2 mx-auto text-center currentIcon"></div>
+
+                </div>
+
+                <div class="row">
+
+                    <!-- Display UV Index -->
+                    <div class="col-12 col-sm-6 uvIndex" style="background-color: green;"></div>
+                
+                </div>
+
+                <div class="row">
+
+                    <div class="col-4">
+                        <p class="temperature"></p>
+                        <p class="feelslike"></p>
+                        <p class="tempmax"></p>
+                        <p class="tempmin"></p>
+                        <p class="humidity"></p>
+                    </div>
+                
+                </div>
+
+                <div class="row">
+
+                    <div class="col-4 windDirection"></div>
+                    <div class="col-4 windGust"></div>
+                    <div class="col-4 windSpeed"></div>
+                    
+                </div>
+
+
+                    <div class="col-3"></div>
+                    
+                </div>
+            </div>
 
         </div>
 

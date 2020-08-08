@@ -26,13 +26,16 @@
     border-color: lightblue;
     border-radius: 25px;
     padding-left: 25px;
+    width: 100%;
 }
 
 
 .submitSearch {
-    background-color: transparent;
+    background-color: rgb(1, 75, 160);
+    color: white;
     font-weight: 600;
-    color:  rgb(1, 38, 82);
+    border-radius: 25px;
+    /* color:  rgb(1, 38, 82); */
 }
 
 .mainSeparation {
