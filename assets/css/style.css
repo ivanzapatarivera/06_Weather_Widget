@@ -22,7 +22,7 @@ body {
     background-color: #0F5298;
     border-radius: 25px;
     letter-spacing: 0.1em;
-    display: none;
+    /* display: none; */
 }
 
 .cardSeparation {

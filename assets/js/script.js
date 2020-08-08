@@ -13,21 +13,22 @@ var cardStyleResult = $('.cardStyleResult');
 
 // Establishes Event Listener Function
 submit.on('click', function(){
-    event.preventDefault();
+    // event.preventDefault();
     console.log(searchCity.val());
 var city = searchCity.val();
     console.log(searchState.val());
 var country = searchState.val();
-    cardStyleResult.show();
-    ajaxAfterCard();
-    // appendCity();    
+    // cardStyleResult.show();
+    // ajaxAfterCard();
+    
     // console.log("You searched for city: " + searchCity.val() + ", " + searchState.val() + ".");
-    // apiAJAXCall(searchCity.val(), searchState.val());
+    apiAJAXCall(city, country);
+       
 })
 
-function ajaxAfterCard() {
-    apiAJAXCall(searchCity.val(), searchState.val());
-}
+// function ajaxAfterCard() {
+//     apiAJAXCall(searchCity.val(), searchState.val());
+// }
 
 // Create City, ST object with array
 var cityObj = {
@@ -107,16 +108,14 @@ var lastLocalStorageResult = localStorageArray.pop();
     console.log(lastLocalStorageResult)
 
     if (lastLocalStorageResult) {
-        cardStyleResult.show();
+        // cardStyleResult.show();
     }
 
     console.log(lastLocalStorageResult[0]);
     console.log(lastLocalStorageResult[1]);
     apiAJAXCall(lastLocalStorageResult[0], lastLocalStorageResult[1]);
 
-} else {
-
-}
+} 
 
 // Query URL to pull city data
 var resultCity = $('.resultCity');
@@ -293,9 +292,10 @@ $.ajax({
             uvIndex.empty().append('UV Index: ' + responseUV.value);
         })
 
-    
+     appendCity(); 
   });
 
+ 
 
 }
 
