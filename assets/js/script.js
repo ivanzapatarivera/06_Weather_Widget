@@ -293,6 +293,14 @@ $.ajax({
             uvIndex.empty().append('UV Index: ' + responseUV.value);
         })
 
+    var queryURLForecast = 'http://api.openweathermap.org/data/2.5/forecast?lat=' + latVal + '&lon=' + lonVal + '&appid=' + apiKey;
+
+    $.ajax({
+        url: queryURLForecast,
+        method: "GET"
+    }).then(function(responseF) {
+        console.log(responseF);
+    })
       
   });
 
