@@ -369,12 +369,12 @@ $.ajax({
         $('#tempMax6').empty().append(tempMaxArray[5]);
 
         // Appending the Minimum Temperature for the date forecasted
-        $('#tempMin1').empty().append(TempMinArray[0]);
-        $('#tempMin2').empty().append(TempMinArray[1]);
-        $('#tempMin3').empty().append(TempMinArray[2]);
-        $('#tempMin4').empty().append(TempMinArray[3]);
-        $('#tempMin5').empty().append(TempMinArray[4]);
-        $('#tempMin6').empty().append(TempMinArray[5]);
+        $('#tempMin1').empty().append(tempMinArray[0]);
+        $('#tempMin2').empty().append(tempMinArray[1]);
+        $('#tempMin3').empty().append(tempMinArray[2]);
+        $('#tempMin4').empty().append(tempMinArray[3]);
+        $('#tempMin5').empty().append(tempMinArray[4]);
+        $('#tempMin6').empty().append(tempMinArray[5]);
 
         // Appending the humidity values for the date forecasted
         $('#humidity1').empty().append(humidityArray[0]);
@@ -388,12 +388,11 @@ $.ajax({
       
   });
 
- 
 
 }
 
-function cardStyleResult() {
-    $('.cardStyleResult').show();
-}
+// function cardStyleResult() {
+//     $('.cardStyleResult').show();
+// }
 
 })
