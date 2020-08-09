@@ -11,6 +11,8 @@ var searchStateClass = $('.searchState');
 var labelStateClass = $('.labelState');
 var cardStyleResult = $('.cardStyleResult');
 
+
+
 // Establishes Event Listener Function
 submit.on('click', function(){
     // event.preventDefault();
@@ -55,7 +57,7 @@ function appendCity() {
         cityObj.stateArray.push(searchState.val());
 
 
-        addLocalStorage();
+        // addLocalStorage();
         apiAJAXCall();
   
 }
@@ -151,6 +153,19 @@ resultCity.on('click', function() {
  
 
 // AJAX Call
+function apiAJAXCall(city, country) {
+
+
+
+var apiKey = '3f0e791b672eddc26b02cdefef533281';
+var queryURL = 'http://api.openweathermap.org/data/2.5/weather?q=' + city + "," + country + '&appid=' + apiKey;
+// api.openweathermap.org/data/2.5/weather?q={city name},{state code}&appid={your api key}
+
+$.ajax({
+    url: queryURL,
+    method: "GET"
+  }).then(function(currentWeather){
+
 var lonLat = $('.lonLat');
 var uvIndex = $('.uvIndex');
 var cityDate = $('.cityDate');
@@ -162,35 +177,22 @@ var tempmax = $('.tempmax');
 var tempmin = $('.tempmin');
 var feelslike = $('.feelslike');
 
-function apiAJAXCall(city, country) {
+var cityName = $('.cityName');
 
-
-var apiKey = '3f0e791b672eddc26b02cdefef533281';
-var queryURL = 'http://api.openweathermap.org/data/2.5/weather?q=' + city + "," + country + '&appid=' + apiKey;
-// api.openweathermap.org/data/2.5/weather?q={city name},{state code}&appid={your api key}
-
-$.ajax({
-    url: queryURL,
-    method: "GET"
-  }).then(function(currentWeather){
     console.log(currentWeather);
 
     // Establishing City and State/Country    
-    var countrycurrentWeather = currentWeather.sys.country;
-    console.log(countrycurrentWeather);
+    var countryCurrentWeather = currentWeather.sys.country;
+    console.log(countryCurrentWeather);
 
-    var cityNamecurrentWeather = currentWeather.name;
-    console.log(cityNamecurrentWeather);
+    var cityNameCurrentWeather = currentWeather.name;
+    console.log(cityNameCurrentWeather);
 
-    var cityCountry = cityNamecurrentWeather + ", " + countrycurrentWeather;
+    var cityCountry = cityNameCurrentWeather + ", " + countryCurrentWeather;
     console.log(cityCountry);
+    cityName.empty().append(cityCountry);
 
-    if (cityName === "") {
-        cityName.append(cityCountry);
-    } else {
-        cityName.empty().append(cityCountry);
-    }
-    
+   
     // Establishing longitude and latitude for API UV Index
     var lonLatArray = [];
 
