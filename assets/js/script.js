@@ -172,17 +172,17 @@ var queryURL = 'http://api.openweathermap.org/data/2.5/weather?q=' + city + "," 
 $.ajax({
     url: queryURL,
     method: "GET"
-  }).then(function(response){
-    console.log(response);
+  }).then(function(currentWeather){
+    console.log(currentWeather);
 
     // Establishing City and State/Country    
-    var countryResponse = response.sys.country;
-    console.log(countryResponse);
+    var countrycurrentWeather = currentWeather.sys.country;
+    console.log(countrycurrentWeather);
 
-    var cityNameResponse = response.name;
-    console.log(cityNameResponse);
+    var cityNamecurrentWeather = currentWeather.name;
+    console.log(cityNamecurrentWeather);
 
-    var cityCountry = cityNameResponse + ", " + countryResponse;
+    var cityCountry = cityNamecurrentWeather + ", " + countrycurrentWeather;
     console.log(cityCountry);
 
     if (cityName === "") {
@@ -195,13 +195,13 @@ $.ajax({
     var lonLatArray = [];
 
         // Establishing longitude
-        longitude = (JSON.stringify(response.coord.lon));
+        longitude = (JSON.stringify(currentWeather.coord.lon));
         console.log(longitude);
         lonLatArray.push(longitude);
         // lon.empty().append("Longitude: " + longitude);
         
         // Establishing latitude
-        latitude = (JSON.stringify(response.coord.lat));
+        latitude = (JSON.stringify(currentWeather.coord.lat));
         console.log(latitude);
         lonLatArray.push(latitude);
         lonLat.empty().append("Longitude: " + longitude + " " + " - " + " " + "Latitude: " + latitude);
@@ -217,12 +217,12 @@ $.ajax({
 
 
     // Establishing Date 
-    console.log(response.dt);
-    var dateGMT = new Date(response.dt * 1000);
+    console.log(currentWeather.dt);
+    var dateGMT = new Date(currentWeather.dt * 1000);
     console.log(dateGMT.toUTCString())
     
-    console.log(response.timezone);
-    var dateDifference = (response.timezone);
+    console.log(currentWeather.timezone);
+    var dateDifference = (currentWeather.timezone);
 
     // Setting local time
     var dateLocal = (dateGMT + dateDifference)
@@ -233,18 +233,18 @@ $.ajax({
 
 
     // Establishing Currrent Weather Conditions and Icon
-    console.log(response.weather[0].main);
-    var main = response.weather[0].main;
+    console.log(currentWeather.weather[0].main);
+    var main = currentWeather.weather[0].main;
     console.log(main);
     // currentMain.append(main);
 
-    console.log(response.weather[0].description);
-    var description = response.weather[0].description;
+    console.log(currentWeather.weather[0].description);
+    var description = currentWeather.weather[0].description;
     console.log(description);
     currentMain.empty().append("The current weather conditions are" + '<br>' + main + " with " + description + ".");
 
-    console.log(response.weather[0].icon);
-    var icon = response.weather[0].icon;
+    console.log(currentWeather.weather[0].icon);
+    var icon = currentWeather.weather[0].icon;
     var iconURL = "http://openweathermap.org/img/w/" + icon + ".png";
     console.log(icon);
     console.log(iconURL);
@@ -252,31 +252,31 @@ $.ajax({
 
 
     // Setting temperature and humidity
-    console.log(response.main.temp);
-    var temp = response.main.temp;
+    console.log(currentWeather.main.temp);
+    var temp = currentWeather.main.temp;
     var tempConversion = Math.floor((9 / 5) * (temp - 273) + 32) + "°F";
     console.log(tempConversion);
     temperature.empty().append("Current temperature: " + tempConversion);
 
-    var feels_like = response.main.feels_like;
-    console.log(response.main.feels_like);
+    var feels_like = currentWeather.main.feels_like;
+    console.log(currentWeather.main.feels_like);
     var flConversion = Math.floor((9 / 5) * (feels_like - 273) + 32) + "°F";
     console.log(flConversion);
     feelslike.empty().append("Feels like: " + flConversion);
 
-    var max = response.main.temp_max;
-    console.log(response.main.temp_max);
+    var max = currentWeather.main.temp_max;
+    console.log(currentWeather.main.temp_max);
     var maxConversion = Math.floor((9 / 5) * (max - 273) + 32) + "°F";
     console.log(maxConversion);
     tempmax.empty().append("Maximum Temperature: " + maxConversion);
 
-    var min = response.main.temp_min;
-    console.log(response.main.temp_min); 
+    var min = currentWeather.main.temp_min;
+    console.log(currentWeather.main.temp_min); 
     var minConversion = Math.floor((9 / 5) * (min - 273) + 32) + "°F";
     console.log(minConversion);
     tempmin.empty().append("Minimum Temperature: " + minConversion);
 
-    var humidityP = (response.main.humidity) + "%";
+    var humidityP = (currentWeather.main.humidity) + "%";
     console.log(humidityP);
     humidity.empty().append("Humidity: " + humidityP);
     
@@ -288,9 +288,9 @@ $.ajax({
         $.ajax({
             url: queryURLuv,
             method: "GET"
-        }).then(function(responseUV) {
-            console.log(responseUV);
-            uvIndex.empty().append('UV Index: ' + responseUV.value);
+        }).then(function(UV) {
+            console.log(UV);
+            uvIndex.empty().append('UV Index: ' + UV.value);
         })
 
     var queryURLForecast = 'http://api.openweathermap.org/data/2.5/forecast?lat=' + latVal + '&lon=' + lonVal + '&appid=' + apiKey;
@@ -298,8 +298,8 @@ $.ajax({
     $.ajax({
         url: queryURLForecast,
         method: "GET"
-    }).then(function(responseF) {
-        console.log(responseF);
+    }).then(function(forecast) {
+        console.log(forecast);
     })
       
   });
