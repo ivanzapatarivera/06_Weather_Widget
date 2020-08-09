@@ -26,13 +26,12 @@
 
 </head>
 
-<body>
+<body class="bg-dark">
     <!-- Header -->
     <header class="header headerStyle" id="header">
-        <h1 class="title col-md-6 mx-auto pt-3 text-center textShadow" id="title">
-            Weather Forecast
-        </h1>
+        
         <p class="slogan col-md-6 mx-auto text-center" id="slogan">
+        <img src="assets/images/logo-top.png" class="mx-auto"><br>
             #1 weather source for travelers
         </p>
         <div class="row">
@@ -53,61 +52,42 @@
         
     </div>
 
-<div class="container">
+
     <!-- Main Contents Container -->
-    <div class="col-12 col-sm-10 mx-auto bg-light">
+    <div class="col-12 col-lg-10 mx-auto bg-light">
 
         <div class="row cardStyleSearch shadow">
 
-            <!-- Search form column (left side) -->
-            <div class="col-12 col-sm-5 city">
+            <!-- Search column (left side) -->
+            <div class="col-12 col-lg-12 city">
 
                 <!-- Labels and Input elements for search -->
                 <div class="row">
 
                     <!-- City Label and input elements -->
-                    <div class="col-12 col-sm-5 text-center" id="city">
+                    <div class="col-12 col-lg-1 text-center" id="city">
                         <label for="searchCity" class="labelCity pt-3">City </label>
                     </div>
-                    <div class="col-12 col-sm-7 pt-3 text-center">
+                    <div class="col-12 col-lg-3 pt-3 text-center">
                         <input type="text" class="searchCity" id="searchCity"></input>
                     </div>
-                    
-
-                </div>
-                <div class="row">
-
-                    <!-- State / Country elements --> 
-                    <div class="col-12 col-sm-5 text-center" id="State">
-                        <label for="searchState" class="labelState pt-3">State or Country (code) </label>
+                    <div class="col-12 col-lg-2 text-center" id="State">
+                            <label for="searchState" class="labelState pt-3">State or Country (code) </label>
                     </div>
-                    <div class="col-12 col-sm-7 pt-3 text-center">
+                    <div class="col-12 col-lg-3 pt-3 text-center">
                         <input type="text" class="searchState" id="searchState"></input>
-                    </div>                   
-                    
-                    
-                </div>
-
-                <div class="row">
-
-                    <div class="col-12 col-sm-3 text-center" id="State">
-                        <button class="btn btn-light px-5 mt-4 submitSearch shadow-sm" id="submitSearch">Search</button>
+                    </div> 
+                    <div class="col-12 col-lg-2 pt-2 text-center id="State">
+                        <button class="btn btn-light submitSearch px-5 shadow-sm" id="submitSearch">Search</button>
                     </div>
-                    
                 </div>
                     
             </div>
 
-            <!-- Search results column (right side) -->
-            <div class="col-12 col-sm-7 mx-auto pl-5" id="searchArea">
+            
 
-                <h2 class="welcome pt-2" id="welcome">
-                    Welcome to Travel Forecaster
-                </h2>
-                <p>Enter the location you're interested in obtaining current weather conditions and forecast. The results will display below this area.</p>
-                <div class="weatherResults" id="weatherResults"></div>
 
-            </div>
+
             <hr class="mainSeparation">
 
         </div>
@@ -188,7 +168,7 @@
                 <div class="row">
 
                      <!-- Forecast Day 1 -->
-                    <div class="col-10 col-lg-2 m-2 mx-auto cardForecastStyle">                        
+                    <div class="col-10 col-lg-2 mx-auto mb-2 shadow cardForecastStyle">                        
                        
                         <div class="row">
                             <!-- Display City Name -->
@@ -197,29 +177,29 @@
                         <hr class="cardHR">
                         <div class="row">
                             <!-- Display Current Weather -->
-                            <div class=" mx-auto infoDay infoDay" id="weather1"></div>
+                            <div class="mx-auto infoDay infoDay" id="weather1"></div>
                         </div>
                         <div class="row">
                             <!-- Display Current Weather -->
-                            <div class=" mx-auto infoDay infoDay" id="icon1"></div>
+                            <div class="mx-auto infoDay infoDay" id="icon1"></div>
                         </div>
                         <div class="row">
                             <!-- Display Current Weather -->
-                            <div class=" mx-auto infoDay infoDay" id="tempMax1"></div>
+                            <div class="mx-auto infoDay infoDay" id="tempMax1"></div>
                         </div>
                         <div class="row">
                             <!-- Display Current Weather -->
-                            <div class=" mx-auto infoDay infoDay" id="tempMin1"></div>
+                            <div class="mx-auto infoDay infoDay" id="tempMin1"></div>
                         </div>
                         <div class="row">
                             <!-- Display Current Weather -->
-                            <div class="pb-4  mx-auto infoDay infoDay" id="humidity1"></div>
+                            <div class="pb-4 mx-auto infoDay infoDay" id="humidity1"></div>
                         </div>
 
                     </div>
 
                     <!-- Forecast Day 2 -->
-                    <div class="col-10 col-lg-2 m-2 mx-auto cardForecastStyle">
+                    <div class="col-10 col-lg-2 mx-auto mb-2 shadow cardForecastStyle">
 
                         <div class="row">
                             <!-- Display City Name -->
@@ -249,7 +229,7 @@
                     </div>
 
                     <!-- Forecast Day 3-->
-                    <div class="col-10 col-lg-2 m-2 mx-auto cardForecastStyle">
+                    <div class="col-10 col-lg-2 mx-auto mb-2 shadow cardForecastStyle">
 
                         <div class="row">
                             <!-- Display City Name -->
@@ -283,7 +263,7 @@
                 <!-- Forecast Day 4 -->
                 <!-- <div class="row"> -->
                     
-                    <div class="col-10 col-lg-2 m-2 mx-auto cardForecastStyle">
+                    <div class="col-10 col-lg-2 mx-auto mb-2 shadow cardForecastStyle">
                         
                         <div class="row">
                             <!-- Display City Name -->
@@ -314,7 +294,7 @@
                     </div>
 
                     <!-- Forecast Day 5 -->
-                    <div class="col-10 col-lg-2 m-2 mx-auto cardForecastStyle">
+                    <div class="col-10 col-lg-2 mx-auto mb-2 shadow cardForecastStyle">
 
                         <div class="row">
                             <!-- Display City Name -->
@@ -345,7 +325,7 @@
                     </div>
 
                     <!-- Forecast Day 6 -->
-                    <!-- <div class="col-10 col-lg-2 m-2 mx-auto cardForecastStyle"> -->
+                    <!-- <div class="col-10 col-lg-2 mx-auto mb-2 shadow cardForecastStyle"> -->
 
                         <!-- <div class="row"> -->
                             <!-- Display City Name -->
@@ -381,7 +361,7 @@
         </div>
 
     </div>
-</div>
+<footer class="mt-5 py-2 text-white text-center bg-dark">&copy; Copyright</footer>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
