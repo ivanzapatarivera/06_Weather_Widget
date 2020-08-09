@@ -389,7 +389,7 @@ $.ajax({
                 $('#humidity6').empty().append(humidityArray[5]);
 
 
-                var newsBrief = '<h3 class="py-4 mb-5 newsBrief textShadow">' + 'Forecast for ' + cityCountry + '</h3>' + '<p class="mt-5">' + main + ' are expected today with the possibility of ' + description + '.</p> <p>Today\'s temperature may rise to ' + maxConversion + '. Tonight, it may drop to ' + minConversion + '. </p> <p> However, the temperature may feel around ' + flConversion + ' to human touch, so plan accordingly for any outdoor activities. This is due to the level of humidity forecasted for today, which should be around ' + humidity + '. </p> <p>If you wish to plan ahead, please refer to the cards below with the weather outlook for the next five days.</p> <h5>Have a pleasant day and wish you a great week ahead!</h5>';
+                var newsBrief = '<h3 class="pt-5 newsBrief textShadow">' + 'Forecast for ' + cityCountry + '</h3>' + '<p class="mt-5">' + main + ' are expected today with the possibility of ' + description + '.</p> <p>Today\'s temperature may rise to ' + maxConversion + '. Tonight, it may drop to ' + minConversion + '. </p> <p> However, the temperature may feel around ' + flConversion + ' to human touch, so plan accordingly for any outdoor activities. This is due to the level of humidity forecasted for today, which should be around ' + humidity + '. </p> <p>If you wish to plan ahead, please refer to the cards below with the weather outlook for the next five days.</p> <h5>Have a pleasant day and wish you a great week ahead!</h5>';
                 $('.newsBrief').empty().append(newsBrief);
 
     })
