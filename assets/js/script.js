@@ -207,21 +207,20 @@ $.ajax({
         lonLat.empty().append("Longitude: " + longitude + " " + " - " + " " + "Latitude: " + latitude);
 
     // Checking and verifying lonLatArray values
-    console.log(lonLatArray);
+        console.log(lonLatArray);
     var lonVal = lonLatArray[0];
     var latVal = lonLatArray[1];
 
     // Consoling lonVal and latVal values
-    console.log(lonVal)
-    console.log(latVal)
+        console.log(lonVal)
+        console.log(latVal)
 
 
     // Establishing Date 
-    console.log(currentWeather.dt);
+        console.log(currentWeather.dt);
     var dateGMT = new Date(currentWeather.dt * 1000);
-    console.log(dateGMT.toUTCString())
-    
-    console.log(currentWeather.timezone);
+        console.log(dateGMT.toUTCString())
+        console.log(currentWeather.timezone);
     var dateDifference = (currentWeather.timezone);
 
     // Setting local time
@@ -233,48 +232,48 @@ $.ajax({
 
 
     // Establishing Currrent Weather Conditions and Icon
-    console.log(currentWeather.weather[0].main);
+        console.log(currentWeather.weather[0].main);
     var main = currentWeather.weather[0].main;
-    console.log(main);
+        console.log(main);
     // currentMain.append(main);
 
-    console.log(currentWeather.weather[0].description);
+        console.log(currentWeather.weather[0].description);
     var description = currentWeather.weather[0].description;
-    console.log(description);
-    currentMain.empty().append("The current weather conditions are" + '<br>' + main + " with " + description + ".");
+        console.log(description);
+        currentMain.empty().append("The current weather conditions are" + '<br>' + main + " with " + description + ".");
 
-    console.log(currentWeather.weather[0].icon);
+        console.log(currentWeather.weather[0].icon);
     var icon = currentWeather.weather[0].icon;
     var iconURL = "http://openweathermap.org/img/w/" + icon + ".png";
-    console.log(icon);
-    console.log(iconURL);
-    currentIcon.empty().append('<img src="' + iconURL + '" style="height: 75px; width: auto;">');
+        console.log(icon);
+        console.log(iconURL);
+        currentIcon.empty().append('<img src="' + iconURL + '" style="height: 75px; width: auto;">');
 
 
     // Setting temperature and humidity
-    console.log(currentWeather.main.temp);
+        console.log(currentWeather.main.temp);
     var temp = currentWeather.main.temp;
-    var tempConversion = Math.floor((9 / 5) * (temp - 273) + 32) + "°F";
-    console.log(tempConversion);
-    temperature.empty().append("Current temperature: " + tempConversion);
+    var tempConversion = Math.round((9 / 5) * (temp - 273) + 32) + "°F";
+        console.log(tempConversion);
+        temperature.empty().append("Current temperature: " + tempConversion);
 
     var feels_like = currentWeather.main.feels_like;
-    console.log(currentWeather.main.feels_like);
-    var flConversion = Math.floor((9 / 5) * (feels_like - 273) + 32) + "°F";
-    console.log(flConversion);
-    feelslike.empty().append("Feels like: " + flConversion);
+        console.log(currentWeather.main.feels_like);
+    var flConversion = Math.round((9 / 5) * (feels_like - 273) + 32) + "°F";
+        console.log(flConversion);
+        feelslike.empty().append("Feels like: " + flConversion);
 
     var max = currentWeather.main.temp_max;
-    console.log(currentWeather.main.temp_max);
-    var maxConversion = Math.floor((9 / 5) * (max - 273) + 32) + "°F";
-    console.log(maxConversion);
-    tempmax.empty().append("Maximum Temperature: " + maxConversion);
+        console.log(currentWeather.main.temp_max);
+    var maxConversion = Math.round((9 / 5) * (max - 273) + 32) + "°F";
+        console.log(maxConversion);
+        tempmax.empty().append("Maximum Temperature: " + maxConversion);
 
     var min = currentWeather.main.temp_min;
-    console.log(currentWeather.main.temp_min); 
-    var minConversion = Math.floor((9 / 5) * (min - 273) + 32) + "°F";
-    console.log(minConversion);
-    tempmin.empty().append("Minimum Temperature: " + minConversion);
+        console.log(currentWeather.main.temp_min); 
+    var minConversion = Math.round((9 / 5) * (min - 273) + 32) + "°F";
+        console.log(minConversion);
+        tempmin.empty().append("Minimum Temperature: " + minConversion);
 
     var humidityP = (currentWeather.main.humidity) + "%";
     console.log(humidityP);
@@ -293,13 +292,98 @@ $.ajax({
             uvIndex.empty().append('UV Index: ' + UV.value);
         })
 
-    var queryURLForecast = 'http://api.openweathermap.org/data/2.5/forecast?lat=' + latVal + '&lon=' + lonVal + '&appid=' + apiKey;
+    var queryURLForecast = 'http://api.openweathermap.org/data/2.5/onecall?lat=' + latVal + '&lon=' + lonVal + '&appid=' + apiKey;
 
     $.ajax({
         url: queryURLForecast,
         method: "GET"
     }).then(function(forecast) {
         console.log(forecast);
+
+        var dayArray = []; console.log(dayArray);
+        var weatherArray = []; console.log(weatherArray);
+        var iconArray = []; console.log(iconArray);
+        var tempMaxArray = []; console.log(tempMaxArray);
+        var tempMinArray = []; console.log(tempMinArray);
+        var humidityArray = []; console.log(humidityArray);
+
+        for (i = 1; i < 7; i++) {
+            // #1 Day
+            var day = (new Date(forecast.daily[i].dt * 1000)) + ''; 
+                day = day.split(" ");
+                day = day[0];
+                dayArray.push(day);
+            // #2 Weather
+            var weather = forecast.daily[i].weather[0].main + " and " + forecast.daily[i].weather[0].description;
+                weatherArray.push(weather);          
+            // #3 icon
+            var icon = forecast.daily[i].weather[0].icon;
+            var iconURL = "http://openweathermap.org/img/w/" + icon + ".png";
+                iconURL = '<img src="' + iconURL + '" style="height: 75px; width: auto;">'
+                iconArray.push(iconURL);
+                // currentIcon.empty().append('<img src="' + iconURL + '" style="height: 75px; width: auto;">');
+            // #4 Temperature Max
+            var tempMax = forecast.daily[i].temp.max;
+                tempMax = "Max. temperature: " + Math.round((9 / 5) * (tempMax - 273) + 32) + "°F";
+                tempMaxArray.push(tempMax);
+            // #6 Tempearture min
+            var tempMin = forecast.daily[i].temp.min;
+                tempMin = "Min. temperature: " + Math.round((9 / 5) * (tempMin - 273) + 32) + "°F";
+                tempMinArray.push(tempMin);
+            // #7 Humidity level
+            var humidity = forecast.daily[i].humidity;
+                humidity = "Humidity: " + humidity + "%";
+                humidityArray.push(humidity);
+            }
+        
+        //Appending Day Name of Forecast
+        $('#day1').empty().append(dayArray[0]);
+        $('#day2').empty().append(dayArray[1]);
+        $('#day3').empty().append(dayArray[2]);
+        $('#day4').empty().append(dayArray[3]);
+        $('#day5').empty().append(dayArray[4]);
+        $('#day6').empty().append(dayArray[5]);
+
+        // Appending Weather Conditions on Forecast
+        $('#weather1').empty().append(weatherArray[0]);
+        $('#weather2').empty().append(weatherArray[1]);
+        $('#weather3').empty().append(weatherArray[2]);
+        $('#weather4').empty().append(weatherArray[3]);
+        $('#weather5').empty().append(weatherArray[4]);
+        $('#weather6').empty().append(weatherArray[5]);
+
+        // Appending icon for the day of forecast
+        $('#icon1').empty().append(iconArray[0]);
+        $('#icon2').empty().append(iconArray[1]);
+        $('#icon3').empty().append(iconArray[2]);
+        $('#icon4').empty().append(iconArray[3]);
+        $('#icon5').empty().append(iconArray[4]);
+        $('#icon6').empty().append(iconArray[5]);
+
+        // Appending the Maximum Temperature for the date forecasted
+        $('#tempMax1').empty().append(tempMaxArray[0]);
+        $('#tempMax2').empty().append(tempMaxArray[1]);
+        $('#tempMax3').empty().append(tempMaxArray[2]);
+        $('#tempMax4').empty().append(tempMaxArray[3]);
+        $('#tempMax5').empty().append(tempMaxArray[4]);
+        $('#tempMax6').empty().append(tempMaxArray[5]);
+
+        // Appending the Minimum Temperature for the date forecasted
+        $('#tempMin1').empty().append(TempMinArray[0]);
+        $('#tempMin2').empty().append(TempMinArray[1]);
+        $('#tempMin3').empty().append(TempMinArray[2]);
+        $('#tempMin4').empty().append(TempMinArray[3]);
+        $('#tempMin5').empty().append(TempMinArray[4]);
+        $('#tempMin6').empty().append(TempMinArray[5]);
+
+        // Appending the humidity values for the date forecasted
+        $('#humidity1').empty().append(humidityArray[0]);
+        $('#humidity2').empty().append(humidityArray[1]);
+        $('#humidity3').empty().append(humidityArray[2]);
+        $('#humidity4').empty().append(humidityArray[3]);
+        $('#humidity5').empty().append(humidityArray[4]);
+        $('#humidity6').empty().append(humidityArray[5]);
+
     })
       
   });
