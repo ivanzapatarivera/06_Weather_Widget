@@ -30,8 +30,8 @@ body {
     border-width: 1px;
     border-color: #0F5298;
     background-color: #0F5298;
-    border-radius: 25px;
-    letter-spacing: 0.1em;
+    /* border-radius: 25px; */
+    /* letter-spacing: 0.1em; */
 }
 
 .cardSeparation {
