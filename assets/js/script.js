@@ -245,7 +245,8 @@ $.ajax({
 
         if (main === "Clouds") {
             $('body').css('background-image', 'url(assets/images/clouds.jpg)');
-            $('body').css('background-position', 'center');
+            $('body').css('background-position', 'center center');
+            $('body').css('background-attachment', 'fixed');
             $('body').css('background-repeat', 'no-repeat');
             $('body').css('background-size', 'cover');
         }
@@ -253,7 +254,8 @@ $.ajax({
         if (main === "Clear") {
             
             $('body').css('background-image', 'url(assets/images/clear.jpg)');
-            $('body').css('background-position', 'center');
+            $('body').css('background-position', 'center center');
+            $('body').css('background-attachment', 'fixed');
             $('body').css('background-repeat', 'no-repeat');
             $('body').css('background-size', 'cover');
         }
@@ -261,7 +263,8 @@ $.ajax({
         if (main === "Thunderstorm") {
             
             $('body').css('background-image', 'url(assets/images/thunderstorms.jpg)');
-            $('body').css('background-position', 'center');
+            $('body').css('background-position', 'center center');
+            $('body').css('background-attachment', 'fixed');
             $('body').css('background-repeat', 'no-repeat');
             $('body').css('background-size', 'cover');
         }
@@ -269,7 +272,8 @@ $.ajax({
         if (main === "Drizzle") {
             
             $('body').css('background-image', 'url(assets/images/drizzle.jpg)');
-            $('body').css('background-position', 'center');
+            $('body').css('background-position', 'center center');
+            $('body').css('background-attachment', 'fixed');
             $('body').css('background-repeat', 'no-repeat');
             $('body').css('background-size', 'cover');
         }
@@ -277,7 +281,8 @@ $.ajax({
         if (main === "Rain") {
             
             $('body').css('background-image', 'url(assets/images/rain.jpg)');
-            $('body').css('background-position', 'center');
+            $('body').css('background-position', 'center center');
+            $('body').css('background-attachment', 'fixed');
             $('body').css('background-repeat', 'no-repeat');
             $('body').css('background-size', 'cover');
         }
@@ -285,7 +290,8 @@ $.ajax({
         if (main === "Snow") {
             
             $('body').css('background-image', 'url(assets/images/snow.jpg)');
-            $('body').css('background-position', 'center');
+            $('body').css('background-position', 'center center');
+            $('body').css('background-attachment', 'fixed');
             $('body').css('background-repeat', 'no-repeat');
             $('body').css('background-size', 'cover');
         }
@@ -293,7 +299,8 @@ $.ajax({
         if (main === "Snow") {
             
             $('body').css('background-image', 'url(assets/images/snow.jpg)');
-            $('body').css('background-position', 'center');
+            $('body').css('background-position', 'center center');
+            $('body').css('background-attachment', 'fixed');
             $('body').css('background-repeat', 'no-repeat');
             $('body').css('background-size', 'cover');
         } 
@@ -301,7 +308,8 @@ $.ajax({
         if (main === "Mist") {
             
             $('body').css('background-image', 'url(assets/images/mist.jpg)');
-            $('body').css('background-position', 'center');
+            $('body').css('background-position', 'center center');
+            $('body').css('background-attachment', 'fixed');
             $('body').css('background-repeat', 'no-repeat');
             $('body').css('background-size', 'cover');
         } 
@@ -309,7 +317,8 @@ $.ajax({
         if (main === "Smoke") {
             
             $('body').css('background-image', 'url(assets/images/smoke.jpg)');
-            $('body').css('background-position', 'center');
+            $('body').css('background-position', 'center center');
+            $('body').css('background-attachment', 'fixed');
             $('body').css('background-repeat', 'no-repeat');
             $('body').css('background-size', 'cover');
         } 
@@ -317,7 +326,8 @@ $.ajax({
         if (main === "Haze") {
             
             $('body').css('background-image', 'url(assets/images/haze.jpg)');
-            $('body').css('background-position', 'center');
+            $('body').css('background-position', 'center center');
+            $('body').css('background-attachment', 'fixed');
             $('body').css('background-repeat', 'no-repeat');
             $('body').css('background-size', 'cover');
         } 
@@ -325,7 +335,8 @@ $.ajax({
         if (main === "Dust") {
             
             $('body').css('background-image', 'url(assets/images/dust.jpg)');
-            $('body').css('background-position', 'center');
+            $('body').css('background-position', 'center center');
+            $('body').css('background-attachment', 'fixed');
             $('body').css('background-repeat', 'no-repeat');
             $('body').css('background-size', 'cover');
         } 
@@ -333,7 +344,8 @@ $.ajax({
         if (main === "Ash") {
             
             $('body').css('background-image', 'url(assets/images/ashes.jpg)');
-            $('body').css('background-position', 'center');
+            $('body').css('background-position', 'center center');
+            $('body').css('background-attachment', 'fixed');
             $('body').css('background-repeat', 'no-repeat');
             $('body').css('background-size', 'cover');
         } 
@@ -341,7 +353,8 @@ $.ajax({
         if (main === "Squall") {
             
             $('body').css('background-image', 'url(assets/images/squall.jpg)');
-            $('body').css('background-position', 'center');
+            $('body').css('background-position', 'center center');
+            $('body').css('background-attachment', 'fixed');
             $('body').css('background-repeat', 'no-repeat');
             $('body').css('background-size', 'cover');
         } 
@@ -349,7 +362,8 @@ $.ajax({
         if (main === "Tornado") {
             
             $('body').css('background-image', 'url(assets/images/tornado.jpg)');
-            $('body').css('background-position', 'center');
+            $('body').css('background-position', 'center center');
+            $('body').css('background-attachment', 'fixed');
             $('body').css('background-repeat', 'no-repeat');
             $('body').css('background-size', 'cover');
         } 
