@@ -180,7 +180,7 @@ $.ajax({
     var tempmax = $('.tempmax');
     var tempmin = $('.tempmin');
     var feelslike = $('.feelslike');
-
+    var windSpeed = $('.windSpeed');
     var cityName = $('.cityName');
 
         console.log(currentWeather);
@@ -394,9 +394,51 @@ $.ajax({
             tempmin.empty().append("Minimum Temperature: " + minConversion);
 
         var humidityP = (currentWeather.main.humidity) + "%";
-        console.log(humidityP);
-        humidity.empty().append("Humidity: " + humidityP);
+            console.log(humidityP);
+            humidity.empty().append("Humidity: " + humidityP);
         
+        var wind = (currentWeather.wind.speed);
+            wind = Math.round(wind * 1.15078);
+        var windDirection = (currentWeather.wind.deg);
+
+            if (windDirection > 27 && windDirection < 72) {
+                windDirection = "Northeast (NE) at ";
+                console.log(wind);
+                windSpeed.empty().append(windDirection + wind + " mph");
+            } else if (windDirection > 71 && windDirection < 117) {
+                windDirection = "East (E) at ";
+                console.log(wind);
+                windSpeed.empty().append(windDirection + wind + " mph");
+            } else if (windDirection > 116 && windDirection < 162) {
+                windDirection = "Southeast (SE) at ";
+                console.log(wind);
+                windSpeed.empty().append(windDirection + wind + " mph");
+            } else if (windDirection > 161 && windDirection < 207) {
+                windDirection = "South (S) at ";
+                console.log(wind);
+                windSpeed.empty().append(windDirection + wind + " mph");
+            } else if (windDirection > 206 && windDirection < 252) {
+                windDirection = "Southwest (SW) at ";
+                console.log(wind);
+                windSpeed.empty().append(windDirection + wind + " mph");
+            } else if (windDirection > 251 && windDirection < 297) {
+                windDirection = "Southeast (SE) at ";
+                console.log(wind);
+                windSpeed.empty().append(windDirection + wind + " mph");
+            } else if (windDirection > 296 && windDirection < 337) {
+                windDirection = "Northwest (SE) at ";
+                console.log(wind);
+                windSpeed.empty().append(windDirection + wind + " mph");
+            } else {
+                windDirection = "North (N) at ";
+                console.log(wind);
+                windSpeed.empty().append(windDirection + wind + " mph");
+            }
+
+            console.log(windSpeed);
+            console.log(windDirection);
+
+            
 
     // Calling for UV query URL 
         var apiKey = '3f0e791b672eddc26b02cdefef533281';
@@ -452,6 +494,7 @@ $.ajax({
                     var humidity = forecast.daily[i].humidity;
                         humidity = "Humidity: " + humidity + "%";
                         humidityArray.push(humidity);
+                    var humidityVal = forecast.daily[i].humidity;
                     }
                 
                 //Appending Day Name of Forecast
@@ -503,7 +546,7 @@ $.ajax({
                 $('#humidity6').empty().append(humidityArray[5]);
 
 
-                var newsBrief = '<h1 class="pt-5 newsBrief">' + 'Forecast for ' + cityCountry + '</h1>' + '<p class="mt-5">' + main + ' are expected today with the possibility of ' + description + '.</p> <p>Today\'s temperature may rise to ' + maxConversion + '. Tonight, it may drop to ' + minConversion + '. </p> <p> However, the temperature may feel around ' + flConversion + ' to human touch, so plan accordingly for any outdoor activities. This is due to the level of humidity forecasted for today, which should be around ' + humidity + '. </p> <p>If you wish to plan ahead, please refer to the cards below with the weather outlook for the next five days.</p> <h5>Have a pleasant day and wish you a great week ahead!</h5>';
+                var newsBrief = '<h1 class="pt-5 newsBrief">' + 'Forecast for ' + cityCountry + '</h1>' + '<p class="mt-5">' + main + ' conditions are expected with the possibility of ' + description + '.</p> <p>Today\'s temperature may rise to ' + maxConversion + '. Tonight, it may drop to ' + minConversion + '. </p> <p> However, the temperature may feel around ' + flConversion + ' to human touch, so plan accordingly for any outdoor activities. This is due to the level of humidity forecasted for today, which is measured at around ' + humidityVal + '%. </p> <p>If you wish to plan ahead, please refer to the cards below with the weather outlook for the next five days.</p> <h5>Have a pleasant day and wish you a great week ahead!</h5>';
                 $('.newsBrief').empty().append(newsBrief);
 
                 
