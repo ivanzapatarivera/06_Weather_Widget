@@ -20,6 +20,10 @@ body {
     display: none;
 }
 
+.cardStyleSearch {
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
 
 .cardStyleResult {
     border-style: solid;
@@ -85,6 +89,10 @@ body {
 .forecastDay {
     color: white;
     font-size: 1.25em;
+}
+
+.newsBrief {
+    border-radius: 10px;
 }
 
 .infoDay {
