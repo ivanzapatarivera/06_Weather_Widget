@@ -12,6 +12,12 @@ body {
     min-height: 40px;
 }
 
+.welcomeImage {
+    width: 75%;
+    max-width: 400px; 
+    height: auto;
+}
+
 .mainBox {
     border-radius: 0 0 15px 15px;
 }
