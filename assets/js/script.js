@@ -162,7 +162,7 @@ resultCity.on('click', function() {
 function apiAJAXCall(city, country) {
 
 var apiKey = '3f0e791b672eddc26b02cdefef533281';
-var queryURL = 'http://api.openweathermap.org/data/2.5/weather?q=' + city + "," + country + '&appid=' + apiKey;
+var queryURL = 'https://api.openweathermap.org/data/2.5/weather?q=' + city + "," + country + '&appid=' + apiKey;
 // api.openweathermap.org/data/2.5/weather?q={city name},{state code}&appid={your api key}
 
 $.ajax({
@@ -362,7 +362,7 @@ $.ajax({
 
             console.log(currentWeather.weather[0].icon);
         var icon = currentWeather.weather[0].icon;
-        var iconURL = "http://openweathermap.org/img/w/" + icon + ".png";
+        var iconURL = "https://openweathermap.org/img/w/" + icon + ".png";
             console.log(icon);
             console.log(iconURL);
             currentIcon.empty().append('<img src="' + iconURL + '" style="height: 75px; width: auto;">');
@@ -442,7 +442,7 @@ $.ajax({
 
     // Calling for UV query URL 
         var apiKey = '3f0e791b672eddc26b02cdefef533281';
-        var queryURLuv = 'http://api.openweathermap.org/data/2.5/uvi?lat=' + latVal + '&lon=' + lonVal + '&appid=' + apiKey;
+        var queryURLuv = 'https://api.openweathermap.org/data/2.5/uvi?lat=' + latVal + '&lon=' + lonVal + '&appid=' + apiKey;
     
             $.ajax({
                 url: queryURLuv,
@@ -452,7 +452,7 @@ $.ajax({
                 uvIndex.empty().append('UV Index: ' + UV.value);
             })
 
-            var queryURLForecast = 'http://api.openweathermap.org/data/2.5/onecall?lat=' + latVal + '&lon=' + lonVal + '&appid=' + apiKey;
+            var queryURLForecast = 'https://api.openweathermap.org/data/2.5/onecall?lat=' + latVal + '&lon=' + lonVal + '&appid=' + apiKey;
 
             $.ajax({
                 url: queryURLForecast,
@@ -478,7 +478,7 @@ $.ajax({
                         weatherArray.push(weather);          
                     // #3 icon
                     var icon = forecast.daily[i].weather[0].icon;
-                    var iconURL = "http://openweathermap.org/img/w/" + icon + ".png";
+                    var iconURL = "https://openweathermap.org/img/w/" + icon + ".png";
                         iconURL = '<img src="' + iconURL + '" style="height: 75px; width: auto;">'
                         iconArray.push(iconURL);
                         // currentIcon.empty().append('<img src="' + iconURL + '" style="height: 75px; width: auto;">');
