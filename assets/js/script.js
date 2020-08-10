@@ -10,7 +10,7 @@ var searchState = $('#searchState');
 var searchStateClass = $('.searchState');
 var labelStateClass = $('.labelState');
 var cardStyleResult = $('.cardStyleResult');
-
+var clearSearch = $('.clearSearch');
 
 
 // Establishes Event Listener Function
@@ -20,18 +20,19 @@ submit.on('click', function(){
 var city = searchCity.val();
     console.log(searchState.val());
 var country = searchState.val();
-    // cardStyleResult.show();
-    // ajaxAfterCard();
-    
-    // console.log("You searched for city: " + searchCity.val() + ", " + searchState.val() + ".");
     apiAJAXCall(city, country);
     appendCity();
-       
+    location.reload();
 })
 
-// function ajaxAfterCard() {
-//     apiAJAXCall(searchCity.val(), searchState.val());
-// }
+// Clears Local Storage and Searches
+
+clearSearch.on('click', function(){
+    localStorage.clear(); 
+    deposit.value = "";
+    location.reload();
+})
+
 
 // Create City, ST object with array
 var cityObj = {
@@ -111,7 +112,8 @@ var lastLocalStorageResult = localStorageArray.pop();
     console.log(lastLocalStorageResult)
 
     if (lastLocalStorageResult) {
-        // cardStyleResult.show();
+        $('.forecastBox').show();
+        $('.placeholderBox').hide();
     }
 
     console.log(lastLocalStorageResult[0]);
@@ -501,7 +503,7 @@ $.ajax({
                 $('#humidity6').empty().append(humidityArray[5]);
 
 
-                var newsBrief = '<h3 class="pt-5 newsBrief textShadow">' + 'Forecast for ' + cityCountry + '</h3>' + '<p class="mt-5">' + main + ' are expected today with the possibility of ' + description + '.</p> <p>Today\'s temperature may rise to ' + maxConversion + '. Tonight, it may drop to ' + minConversion + '. </p> <p> However, the temperature may feel around ' + flConversion + ' to human touch, so plan accordingly for any outdoor activities. This is due to the level of humidity forecasted for today, which should be around ' + humidity + '. </p> <p>If you wish to plan ahead, please refer to the cards below with the weather outlook for the next five days.</p> <h5>Have a pleasant day and wish you a great week ahead!</h5>';
+                var newsBrief = '<h1 class="pt-5 newsBrief">' + 'Forecast for ' + cityCountry + '</h1>' + '<p class="mt-5">' + main + ' are expected today with the possibility of ' + description + '.</p> <p>Today\'s temperature may rise to ' + maxConversion + '. Tonight, it may drop to ' + minConversion + '. </p> <p> However, the temperature may feel around ' + flConversion + ' to human touch, so plan accordingly for any outdoor activities. This is due to the level of humidity forecasted for today, which should be around ' + humidity + '. </p> <p>If you wish to plan ahead, please refer to the cards below with the weather outlook for the next five days.</p> <h5>Have a pleasant day and wish you a great week ahead!</h5>';
                 $('.newsBrief').empty().append(newsBrief);
 
                 
@@ -513,8 +515,6 @@ $.ajax({
 
 }
 
-// function cardStyleResult() {
-//     $('.cardStyleResult').show();
-// }
+
 
 })

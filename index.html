@@ -48,14 +48,14 @@
     </header>
 
     <!-- Search Results Go Here -->
-    <div class="shadow py-2 px-md-4 text-center headerStyle navbarLocal searchDeposit" id="searchDeposit">
+    <div class="shadow py-2 px-lg-4 text-center headerStyle navbarLocal searchDeposit" id="searchDeposit">
         
     </div>
 
 
     <!-- Main Contents Container -->
-    <div class="col-12 col-lg-10 mx-auto pb-5 bg-light shadow mainBox">
-        <div class="row pb-2 cardStyleSearch shadow">
+    <div class="col-12 col-lg-10 mx-auto pb-5 bg-alert text-white shadow mainBox">
+        <div class="row pb-2 pt-1 cardStyleSearch shadow">
             <!-- Search column (left side) -->
             <div class="col-12 col-lg-12 city">
               <!-- Labels and Input elements for search -->
@@ -64,23 +64,32 @@
                     <div class="col-12 col-lg-1 text-center" id="city">
                         <label for="searchCity" class="labelCity pt-3">City </label>
                     </div>
-                    <div class="col-12 col-lg-3 pt-3 text-center">
-                        <input type="text" class="searchCity" id="searchCity"></input>
+                    <div class="col-12 col-lg-2 pt-3 text-center">
+                        <input type="text" class="searchCity" placeholder="City..." id="searchCity"></input>
                     </div>
                     <div class="col-12 col-lg-2 text-center" id="State">
                             <label for="searchState" class="labelState pt-3">State or Country (code) </label>
                     </div>
-                    <div class="col-12 col-lg-3 pt-3 text-center">
-                        <input type="text" class="searchState" id="searchState"></input>
+                    <div class="col-12 col-lg-2 pt-3 text-center">
+                        <input type="text" class="searchState" placeholder="State or Country Code..." id="searchState"></input>
                     </div> 
-                    <div class="col-12 col-lg-2 pt-2 text-center id="State">
+                    <div class="col-12 col-lg-2 pt-2 text-center">
                         <button class="btn btn-light submitSearch px-5 shadow-sm" id="submitSearch">Search</button>
+                    </div>
+                    <div class="col-12 col-lg-3 pt-2 text-center">
+                        <button class="btn btn-light clearSearch px-3 shadow-sm" id="clearSearch">Clear Searches</button>
                     </div>
                 </div>                   
             </div>
 
         </div>
-
+        <div class="col-12 mt-5 col-lg-12 bg-dark placeholderBox">
+            <h1 class="text-center text-white display-1 pt-5">Welcome to WX'er</h1>
+            <p class="fontSmall text-center text-white">powered by OpenWeather</p> 
+            <p class="text-center"><img src="https://openweathermap.org/themes/openweathermap/assets/img/logo_white_cropped.png"></p>
+            <p class="text-center text-white">The most reliable source of weather information for travelers.</p>
+        </div>
+        <div class="forecastBox">
         <div class="row">
             <div class="col-10 col-lg-4 mx-auto mr-lg-auto ml-4 my-4 mt-5 shadow cardStyleResult">
                 
@@ -333,9 +342,10 @@
             </div>
         </div>
         </div>
+        </div>
 
     </div>
-<footer class="mt-5 py-2 text-white text-center bg-dark">&copy; Copyright</footer>
+<footer class="mt-5 py-2 fixed-bottom text-white text-center bg-dark">&copy; Copyright</footer>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
