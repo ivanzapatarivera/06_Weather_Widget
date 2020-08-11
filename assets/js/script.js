@@ -1,15 +1,11 @@
 $(document).ready(function() {
 
-// var city = $('#city');
 var submit = $('.submitSearch');
 var deposit = $('.searchDeposit');
 var searchCity = $('#searchCity');
-var searchCityClass = $('.searchCity');
 var labelCityClass = $('.labelCity');
 var searchState = $('#searchState');
-var searchStateClass = $('.searchState');
 var labelStateClass = $('.labelState');
-var cardStyleResult = $('.cardStyleResult');
 var clearSearch = $('.clearSearch');
 
 
@@ -26,7 +22,6 @@ var country = searchState.val();
 })
 
 // Clears Local Storage and Searches
-
 clearSearch.on('click', function(){
     localStorage.clear(); 
     deposit.value = "";
@@ -51,16 +46,15 @@ function appendCity() {
         deposit.append('<div class="d-inline ml-4 resultCity">' + searchCityST + '</div>');
 
     var result = searchCityST;
-        result = result + "-"
+        result = result + "-";
         console.log(result);
 
         cityObj.cityArray.push(searchCity.val());
         cityObj.stateArray.push(searchState.val());
 
-
+        // Adds searched city into local storage and call AJAX with these values
         addLocalStorage();
         apiAJAXCall();
-  
 }
 
 console.log(cityObj.cityArray, cityObj.stateArray);
@@ -83,8 +77,6 @@ function addLocalStorage() {
     } else {
         localStorage.setItem(key, value);
     }
-
-
 }
 
 // Append recent searches onto top bar
@@ -96,8 +88,7 @@ function addLocalStorage() {
     }
     
 
-// Retrieven the value of the last search
-
+// Retrieve the value of the last search
 if (oldKeyValue) {
 var localStorageArray = [];
     console.log(localStorageArray);
@@ -106,11 +97,16 @@ var localStorageArray = [];
     localStorageArray.pop();
     console.log(localStorageArray);
 
+// Deleted the last item of the array as to obtain last city that was searched and 
+// stored in local storage
 var lastLocalStorageResult = localStorageArray.pop();
     console.log(lastLocalStorageResult);
+
+    // Split the last items inside the array to divide them into the two values needed for the API call
     lastLocalStorageResult = lastLocalStorageResult.split(", ");
     console.log(lastLocalStorageResult)
 
+    // Asks the forecast box with current weather and forecast to be displayed and the welcome logo to be hidden
     if (lastLocalStorageResult) {
         $('.forecastBox').show();
         $('.placeholderBox').hide();
@@ -125,7 +121,7 @@ var lastLocalStorageResult = localStorageArray.pop();
 var resultCity = $('.resultCity');
 
 resultCity.on('click', function() {
-    // event.preventDefault();
+    // event.preventDefault(); Commented it as it was causing problems loading weather data
 
     // Query URL to pull city data
     var resultCity = $('.resultCity');
@@ -154,16 +150,22 @@ resultCity.on('click', function() {
         // Console log for cityStateArray 
         console.log(cityStateArray);
 
-        // cardStyleResult.show();
 })
  
+function generateBackground(bgUrl){
+    $('body').css('background-image', bgUrl);
+    $('body').css('background-position', 'center center');
+    $('body').css('background-attachment', 'fixed');
+    $('body').css('background-repeat', 'no-repeat');
+    $('body').css('background-size', 'cover');
 
+}
 // AJAX Call
 function apiAJAXCall(city, country) {
 
 var apiKey = '3f0e791b672eddc26b02cdefef533281';
 var queryURL = 'https://api.openweathermap.org/data/2.5/weather?q=' + city + "," + country + '&appid=' + apiKey;
-// api.openweathermap.org/data/2.5/weather?q={city name},{state code}&appid={your api key}
+// api.openweathermap.org/data/2.5/weather?q={city name},{state code}&appid={your api key}  API to be followed for city and state (US only) or country code
 
 $.ajax({
     url: queryURL,
@@ -243,132 +245,78 @@ $.ajax({
             console.log(main);
         // currentMain.append(main);
 
+        
+        // Setting up background image conditionals depending on the current weather 
+        // conditions of the city that has been searched
         if (main === "Clouds") {
-            $('body').css('background-image', 'url(assets/images/clouds.jpg)');
-            $('body').css('background-position', 'center center');
-            $('body').css('background-attachment', 'fixed');
-            $('body').css('background-repeat', 'no-repeat');
-            $('body').css('background-size', 'cover');
+            generateBackground('url(assets/images/clouds.jpg)');
         }
 
         if (main === "Clear") {
-            
-            $('body').css('background-image', 'url(assets/images/clear.jpg)');
-            $('body').css('background-position', 'center center');
-            $('body').css('background-attachment', 'fixed');
-            $('body').css('background-repeat', 'no-repeat');
-            $('body').css('background-size', 'cover');
+            generateBackground('url(assets/images/clear.jpg)');
+ 
         }
 
         if (main === "Thunderstorm") {
-            
-            $('body').css('background-image', 'url(assets/images/thunderstorms.jpg)');
-            $('body').css('background-position', 'center center');
-            $('body').css('background-attachment', 'fixed');
-            $('body').css('background-repeat', 'no-repeat');
-            $('body').css('background-size', 'cover');
+            generateBackground('url(assets/images/thunderstorms.jpg)');
         }
 
         if (main === "Drizzle") {
-            
-            $('body').css('background-image', 'url(assets/images/drizzle.jpg)');
-            $('body').css('background-position', 'center center');
-            $('body').css('background-attachment', 'fixed');
-            $('body').css('background-repeat', 'no-repeat');
-            $('body').css('background-size', 'cover');
+            generateBackground('url(assets/images/drizzle.jpg)');
+  
         }
 
         if (main === "Rain") {
-            
-            $('body').css('background-image', 'url(assets/images/rain.jpg)');
-            $('body').css('background-position', 'center center');
-            $('body').css('background-attachment', 'fixed');
-            $('body').css('background-repeat', 'no-repeat');
-            $('body').css('background-size', 'cover');
+            generateBackground('url(assets/images/rain.jpg)');
+     
         }
 
         if (main === "Snow") {
-            
-            $('body').css('background-image', 'url(assets/images/snow.jpg)');
-            $('body').css('background-position', 'center center');
-            $('body').css('background-attachment', 'fixed');
-            $('body').css('background-repeat', 'no-repeat');
-            $('body').css('background-size', 'cover');
+            generateBackground('url(assets/images/snow.jpg)');
+  
         }
 
         if (main === "Snow") {
-            
-            $('body').css('background-image', 'url(assets/images/snow.jpg)');
-            $('body').css('background-position', 'center center');
-            $('body').css('background-attachment', 'fixed');
-            $('body').css('background-repeat', 'no-repeat');
-            $('body').css('background-size', 'cover');
+            generateBackground('url(assets/images/clear.jpg)');
+    
         } 
 
         if (main === "Mist") {
-            
-            $('body').css('background-image', 'url(assets/images/mist.jpg)');
-            $('body').css('background-position', 'center center');
-            $('body').css('background-attachment', 'fixed');
-            $('body').css('background-repeat', 'no-repeat');
-            $('body').css('background-size', 'cover');
+            generateBackground('url(assets/images/mist.jpg)');
+
         } 
 
         if (main === "Smoke") {
-            
-            $('body').css('background-image', 'url(assets/images/smoke.jpg)');
-            $('body').css('background-position', 'center center');
-            $('body').css('background-attachment', 'fixed');
-            $('body').css('background-repeat', 'no-repeat');
-            $('body').css('background-size', 'cover');
+            generateBackground('url(assets/images/smoke.jpg)');
+        
         } 
 
         if (main === "Haze") {
-            
-            $('body').css('background-image', 'url(assets/images/haze.jpg)');
-            $('body').css('background-position', 'center center');
-            $('body').css('background-attachment', 'fixed');
-            $('body').css('background-repeat', 'no-repeat');
-            $('body').css('background-size', 'cover');
+            generateBackground('url(assets/images/haze.jpg)');
+ 
         } 
 
         if (main === "Dust") {
-            
-            $('body').css('background-image', 'url(assets/images/dust.jpg)');
-            $('body').css('background-position', 'center center');
-            $('body').css('background-attachment', 'fixed');
-            $('body').css('background-repeat', 'no-repeat');
-            $('body').css('background-size', 'cover');
+            generateBackground('url(assets/images/dust.jpg)');
+      
         } 
 
         if (main === "Ash") {
-            
-            $('body').css('background-image', 'url(assets/images/ashes.jpg)');
-            $('body').css('background-position', 'center center');
-            $('body').css('background-attachment', 'fixed');
-            $('body').css('background-repeat', 'no-repeat');
-            $('body').css('background-size', 'cover');
+            generateBackground('url(assets/images/ashes.jpg)');
+         
         } 
 
         if (main === "Squall") {
-            
-            $('body').css('background-image', 'url(assets/images/squall.jpg)');
-            $('body').css('background-position', 'center center');
-            $('body').css('background-attachment', 'fixed');
-            $('body').css('background-repeat', 'no-repeat');
-            $('body').css('background-size', 'cover');
+            generateBackground('url(assets/images/squall.jpg)');
+        
         } 
 
         if (main === "Tornado") {
-            
-            $('body').css('background-image', 'url(assets/images/tornado.jpg)');
-            $('body').css('background-position', 'center center');
-            $('body').css('background-attachment', 'fixed');
-            $('body').css('background-repeat', 'no-repeat');
-            $('body').css('background-size', 'cover');
+            generateBackground('url(assets/images/tornado.jpg)');
+          
         } 
         
-
+        //Setting up logo and current weather data
             console.log(currentWeather.weather[0].description);
         var description = currentWeather.weather[0].description;
             console.log(description);
@@ -411,10 +359,13 @@ $.ajax({
             console.log(humidityP);
             humidity.empty().append("Humidity: " + humidityP);
         
+        // Converting wind speed from kts to mph
         var wind = (currentWeather.wind.speed);
             wind = Math.round(wind * 1.15078);
         var windDirection = (currentWeather.wind.deg);
 
+
+            // Conditionals to determine wind direction
             if (windDirection > 27 && windDirection < 72) {
                 windDirection = "Northeast (NE) at ";
                 console.log(wind);
@@ -560,7 +511,7 @@ $.ajax({
                 $('#humidity6').empty().append(humidityArray[5]);
 
 
-                var newsBrief = '<h1 class="pt-5 newsBrief text-center">' + 'Forecast for ' + cityCountry + '</h1>' + '<p class="mt-5">' + main + ' conditions are expected with the possibility of ' + description + '.</p> <p>Today\'s temperature may rise to ' + maxConversion + '. Tonight, it may drop to ' + minConversion + '. </p> <p> However, the temperature may feel around ' + flConversion + ' to human touch, so plan accordingly for any outdoor activities. This is due to the level of humidity forecasted for today, which is measured at around ' + humidityVal + '%. </p> <p>If you wish to plan ahead, please refer to the cards below with the weather outlook for the next five days.</p> <h5>Have a pleasant day and wish you a great week ahead!</h5>';
+                var newsBrief = '<h1 class="pt-5 newsBrief text-center">' + 'Forecast for <br>' + cityCountry + '</h1>' + '<p class="mt-5">' + main + ' conditions are expected with the possibility of ' + description + '.</p> <p>Today\'s temperature may rise to ' + maxConversion + '. Tonight, it may drop to ' + minConversion + '. </p> <p> However, the temperature may feel around ' + flConversion + ' to human touch, so plan accordingly for any outdoor activities. This is due to the level of humidity forecasted for today, which is measured at around ' + humidityVal + '%. </p> <p>If you wish to plan ahead, please refer to the cards below with the weather outlook for the next five days.</p> <h5>Have a pleasant day and wish you a great week ahead!</h5>';
                 $('.newsBrief').empty().append(newsBrief);
 
                 
