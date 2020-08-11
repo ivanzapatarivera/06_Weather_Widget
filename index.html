@@ -9,6 +9,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <meta name="Description" content="Weather Widget" />
 
+    <!-- Links to Bootstrap, Font Awesome and Local Stylesheets  -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" />
     <link rel="stylesheet" href="assets/css/style.css" />
@@ -21,19 +22,27 @@
     
     -->
 
+    <!-- Page title -->
     <title>Traveler Weather Widget</title>
 
 
 </head>
 
+<!-- Sets body to Bootstrap dark background color -->
 <body class="bg-dark">
+
     <!-- Header -->
     <header class="header col-12 headerStyle" id="header">
         
+        <!-- Header design -->
         <p class="slogan col-12 col-md-6 mx-auto text-center" id="slogan">
-        <a href="https://johnsbrook.github.io/06_Weather_Widget/"><img src="assets/images/logo-top.png" class="mx-auto"></a><br>
+
+            <!-- Setting WX'er logo on top with link to page -->
+            <a href="https://johnsbrook.github.io/06_Weather_Widget/"><img src="assets/images/logo-top.png" class="mx-auto"></a><br>
             #1 weather source for travelers
         </p>
+
+        <!-- Setting up Section for OpenWeather with OW's logo -->
         <div class="row">
             <div class="col-6 mx-auto text-center pb-3">
                 <div class="col-md-6 d-inline fontSmall alignBottom">
@@ -45,20 +54,21 @@
                 </div>
             </div>
         </div>
+
     </header>
 
+
     <!-- Search Results Go Here -->
-    <div class="shadow py-2 px-0 px-lg-4 text-center headerStyle navbarLocal searchDeposit" id="searchDeposit">
-        
-    </div>
+    <div class="shadow py-2 px-0 px-lg-4 text-center headerStyle navbarLocal searchDeposit" id="searchDeposit"></div>
 
 
     <!-- Main Contents Container -->
     <div class="col-12 col-lg-10 mx-auto pb-5 bg-alert text-white bg-transparent mainBox">
         <div class="row pb-2 pt-1 cardStyleSearch bg-dark shadow">
+
             <!-- Search column (left side) -->
             <div class="col-12 col-lg-12 city">
-              <!-- Labels and Input elements for search -->
+                <!-- Labels and Input elements for search -->
                 <div class="row">
                     <!-- City Label and input elements -->
                     <div class="col-12 col-lg-1 text-center" id="city">
@@ -83,6 +93,8 @@
             </div>
 
         </div>
+
+        <!-- Welcome placeholder content with WX'er and OpenWeather logo -->
         <div class="row">
         <div class="col-12 mt-5 col-lg-12 bg-dark placeholderBox">
             <h1 class="text-center text-white display-1 pt-5">Welcome to WX'er</h1>
@@ -91,272 +103,222 @@
             <p class="text-center text-white">The most reliable source of weather information for travelers.</p>
         </div>
         </div>
-        <div class="forecastBox">
-        <div class="row">
-            <div class="col-10 col-lg-4 mx-auto mr-lg-auto ml-4 my-4 mt-5 shadow cardStyleResult">
-                
-                <div class="row">
-                    <!-- Display City Name -->
-                    <div class="cityName mx-auto mt-1 text-center text-white"></div>
-                </div>  
-                <div class="row">
-                    <!-- Display Current Weather -->
-                    <div class="mx-auto mt-1 text-center currentMain"></div>
-                </div>
-                <div class="row">
-                    <!-- Display Weather Icon -->
-                    <div class="mx-auto mt-1 text-center currentIcon"></div>
-                </div>
 
-                <hr class="cardSeparation">
-
-                <div class="row">
-                    <!-- Display Latitude and Longitud -->
-                    <div class="lonLat mt-2 ml-4 text-white"></div>
-                </div>
-                <div class="row">
-                    <!-- Display UV Index -->
-                    <div class="ml-4 uvIndex"></div>
-                </div>
-                <div class="row">
-                    <!-- Display temperature -->
-                    <div class="ml-4 text-white temperature"></div>
-                </div>
-                <div class="row">
-                    <!-- Display feelslike -->
-                    <div class="ml-4 text-white feelslike"></div>
-                </div>
-                <div class="row">
-                    <!-- Display tempmax -->
-                    <div class="ml-4 text-white tempmax"></div>
-                </div>
-                <div class="row">
-                    <!-- Display tempmin -->
-                    <div class="ml-4 text-white tempmin"></div>
-                </div>
-                <div class="row">
-                    <!-- Display humidity -->
-                    <div class="ml-4 text-white humidity"></div>
-                </div>
-                <div class="row">
-                    <!-- Display humidity -->
-                    <div class="ml-4 mb-4 text-white windSpeed"></div>
-                </div>
-                <div class="row">
-                    <!-- Display City Name -->
-                    <div class="cityDate mx-auto mb-1 text-white fontSmall"></div>
-                </div>
-      
-            </div>
-            <div class="newsBrief col-10 col-lg-7 mx-auto ml-lg-5 mr-4 my-4 mt-5 mt-lg-5 mb-4 bg-dark shadow">     
-            </div>
-
-        </div>
-        <div class="row">
-            <div class="col-12 col-sm-12 mx-auto">
-                <div class="row">
-
-                     <!-- Forecast Day 1 -->
-                    <div class="col-10 col-lg-2 mx-auto mb-2 shadow cardForecastStyle">                        
-                       
-                        <div class="row">
-                            <!-- Display City Name -->
-                            <div class="forecastDay pt-2 mx-auto mt-0 text-center text-white" id="day1"></div>
-                        </div>  
-                        <hr class="cardHR">
-                        <div class="row">
-                            <!-- Display Current Weather -->
-                            <div class="mx-auto infoDay infoDay" id="weather1"></div>
-                        </div>
-                        <div class="row">
-                            <!-- Display Current Weather -->
-                            <div class="mx-auto infoDay infoDay" id="icon1"></div>
-                        </div>
-                        <div class="row">
-                            <!-- Display Current Weather -->
-                            <div class="mx-auto infoDay infoDay" id="tempMax1"></div>
-                        </div>
-                        <div class="row">
-                            <!-- Display Current Weather -->
-                            <div class="mx-auto infoDay infoDay" id="tempMin1"></div>
-                        </div>
-                        <div class="row">
-                            <!-- Display Current Weather -->
-                            <div class="pb-4 mx-auto infoDay infoDay" id="humidity1"></div>
-                        </div>
-
-                    </div>
-
-                    <!-- Forecast Day 2 -->
-                    <div class="col-10 col-lg-2 mx-auto mb-2 shadow cardForecastStyle">
-
-                        <div class="row">
-                            <!-- Display City Name -->
-                            <div class="forecastDay pt-2 mx-auto mt-0 text-center text-white" id="day2"></div>
-                        </div>  
-                        <hr class="cardHR">
-                        <div class="row">
-                            <!-- Display Current Weather -->
-                            <div class="mx-auto infoDay" id="weather2"></div>
-                        </div>
-                        <div class="row">
-                            <!-- Display Current Weather -->
-                            <div class="mx-auto infoDay" id="icon2"></div>
-                        </div>
-                        <div class="row">
-                            <!-- Display Current Weather -->
-                            <div class="mx-auto infoDay" id="tempMax2"></div>
-                        </div>
-                        <div class="row">
-                            <!-- Display Current Weather -->
-                            <div class="mx-auto infoDay" id="tempMin2"></div>
-                        </div>
-                        <div class="row">
-                            <!-- Display Current Weather -->
-                            <div class="pb-4 mx-auto infoDay" id="humidity2"></div>
-                        </div>
-                    </div>
-
-                    <!-- Forecast Day 3-->
-                    <div class="col-10 col-lg-2 mx-auto mb-2 shadow cardForecastStyle">
-
-                        <div class="row">
-                            <!-- Display City Name -->
-                            <div class="forecastDay pt-2 mx-auto mt-0 text-center text-white" id="day3"></div>
-                        </div>  
-                        <hr class="cardHR">
-                        <div class="row">
-                            <!-- Display Current Weather -->
-                            <div class="mx-auto infoDay" id="weather3"></div>
-                        </div>
-                        <div class="row">
-                            <!-- Display Current Weather -->
-                            <div class="mx-auto infoDay" id="icon3"></div>
-                        </div>
-                        <div class="row">
-                            <!-- Display Current Weather -->
-                            <div class="mx-auto infoDay" id="tempMax3"></div>
-                        </div>
-                        <div class="row">
-                            <!-- Display Current Weather -->
-                            <div class="mx-auto infoDay" id="tempMin3"></div>
-                        </div>
-                        <div class="row">
-                            <!-- Display Current Weather -->
-                            <div class="pb-4 mx-auto infoDay" id="humidity3"></div>
-                        </div>
-
-                    </div>
-                <!-- </div> -->
-
-                <!-- Forecast Day 4 -->
-                <!-- <div class="row"> -->
+        <!-- Section with forecast card with box of weather conditions -->
+        <section class="forecastBox">
+            <div class="row">
+                <div class="col-10 col-lg-4 mx-auto mr-lg-auto ml-4 my-4 mt-5 shadow cardStyleResult">
                     
-                    <div class="col-10 col-lg-2 mx-auto mb-2 shadow cardForecastStyle">
-                        
-                        <div class="row">
-                            <!-- Display City Name -->
-                            <div class="forecastDay pt-2 mx-auto mt-0 text-center text-white" id="day4"></div>
-                        </div>  
-                        <hr class="cardHR">
-                        <div class="row">
-                            <!-- Display Current Weather -->
-                            <div class="mx-auto infoDay" id="weather4"></div>
-                        </div>
-                        <div class="row">
-                            <!-- Display Current Weather -->
-                            <div class="mx-auto infoDay" id="icon4"></div>
-                        </div>
-                        <div class="row">
-                            <!-- Display Current Weather -->
-                            <div class="mx-auto infoDay" id="tempMax4"></div>
-                        </div>
-                        <div class="row">
-                            <!-- Display Current Weather -->
-                            <div class="mx-auto infoDay" id="tempMin4"></div>
-                        </div>
-                        <div class="row">
-                            <!-- Display Current Weather -->
-                            <div class="pb-4 mx-auto infoDay" id="humidity4"></div>
-                        </div>
-
+                    <div class="row">
+                        <!-- Display City Name -->
+                        <div class="cityName mx-auto mt-1 text-center text-white"></div>
+                    </div>  
+                    <div class="row">
+                        <!-- Display Current Weather -->
+                        <div class="mx-auto mt-1 text-center currentMain"></div>
+                    </div>
+                    <div class="row">
+                        <!-- Display Weather Icon -->
+                        <div class="mx-auto mt-1 text-center currentIcon"></div>
                     </div>
 
-                    <!-- Forecast Day 5 -->
-                    <div class="col-10 col-lg-2 mx-auto mb-2 shadow cardForecastStyle">
+                    <hr class="cardSeparation">
 
-                        <div class="row">
-                            <!-- Display City Name -->
-                            <div class="forecastDay pt-2 mx-auto mt-0 text-center text-white" id="day5"></div>
-                        </div>  
-                        <hr class="cardHR">
-                        <div class="row">
-                            <!-- Display Current Weather -->
-                            <div class="mx-auto infoDay" id="weather5"></div>
-                        </div>
-                        <div class="row">
-                            <!-- Display Current Weather -->
-                            <div class="mx-auto infoDay" id="icon5"></div>
-                        </div>
-                        <div class="row">
-                            <!-- Display Current Weather -->
-                            <div class="mx-auto infoDay" id="tempMax5"></div>
-                        </div>
-                        <div class="row">
-                            <!-- Display Current Weather -->
-                            <div class="mx-auto infoDay" id="tempMin5"></div>
-                        </div>
-                        <div class="row">
-                            <!-- Display Current Weather -->
-                            <div class="pb-4 mx-auto infoDay" id="humidity5"></div>
-                        </div>
-
+                    <div class="row">
+                        <!-- Display Latitude and Longitud -->
+                        <div class="lonLat mt-2 ml-4 text-white"></div>
                     </div>
+                    <div class="row">
+                        <!-- Display UV Index -->
+                        <div class="ml-4 uvIndex"></div>
+                    </div>
+                    <div class="row">
+                        <!-- Display temperature -->
+                        <div class="ml-4 text-white temperature"></div>
+                    </div>
+                    <div class="row">
+                        <!-- Display feelslike -->
+                        <div class="ml-4 text-white feelslike"></div>
+                    </div>
+                    <div class="row">
+                        <!-- Display tempmax -->
+                        <div class="ml-4 text-white tempmax"></div>
+                    </div>
+                    <div class="row">
+                        <!-- Display tempmin -->
+                        <div class="ml-4 text-white tempmin"></div>
+                    </div>
+                    <div class="row">
+                        <!-- Display humidity -->
+                        <div class="ml-4 text-white humidity"></div>
+                    </div>
+                    <div class="row">
+                        <!-- Display humidity -->
+                        <div class="ml-4 mb-4 text-white windSpeed"></div>
+                    </div>
+                    <div class="row">
+                        <!-- Display City Name -->
+                        <div class="cityDate mx-auto mb-1 text-white fontSmall"></div>
+                    </div>
+        
+                </div>
+                <div class="newsBrief col-10 col-lg-7 mx-auto ml-lg-5 mr-4 my-4 mt-5 mt-lg-5 mb-4 bg-dark shadow">     
+                </div>
 
-                    <!-- Forecast Day 6 -->
-                    <!-- <div class="col-10 col-lg-2 mx-auto mb-2 shadow cardForecastStyle"> -->
+            </div>
 
-                        <!-- <div class="row"> -->
-                            <!-- Display City Name -->
-                            <!-- <div class="forecastDay pt-2 mx-auto mt-0 text-center text-white" id="day6"></div> -->
-                        <!-- </div>  
-                        <hr class="cardHR">
-                        <div class="row"> -->
-                            <!-- Display Current Weather -->
-                            <!-- <div class="mx-auto infoDay" id="weather6"></div>
-                        </div>
-                        <div class="row"> -->
-                            <!-- Display Current Weather -->
-                            <!-- <div class="mx-auto infoDay" id="icon6"></div>
-                        </div>
-                        <div class="row"> -->
-                            <!-- Display Current Weather -->
-                            <!-- <div class="mx-auto infoDay" id="tempMax6"></div>
-                        </div>
-                        <div class="row"> -->
-                            <!-- Display Current Weather -->
-                            <!-- <div class="mx-auto infoDay" id="tempMin6"></div>
-                        </div>
-                        <div class="row"> -->
-                            <!-- Display Current Weather -->
-                            <!-- <div class="pb-4 mx-auto infoDay" id="humidity6"></div>
-                        </div> -->
+            <!-- Section with forecast for the next five days -->
+            <div class="row">
+                <div class="col-12 col-sm-12 mx-auto">
+                    <div class="row">
 
+                        <!-- Forecast Day 1 -->
+                        <div class="col-10 col-lg-2 mx-auto mb-2 shadow cardForecastStyle">                        
+                            <!-- Day of Weather Forecast -->
+                            <div class="row">                               
+                                <div class="forecastDay pt-2 mx-auto mt-0 text-center text-white" id="day1"></div>
+                            </div>  
+                            <hr class="cardHR">
+                            <!-- Forecast Weather -->
+                            <div class="row">
+                                <div class="mx-auto infoDay infoDay" id="weather1"></div>
+                            </div>
+                            <!-- Icon depending on forecast weather -->
+                            <div class="row">
+                                <div class="mx-auto infoDay infoDay" id="icon1"></div>
+                            </div>
+                            <!-- Maximum temperature forecasted -->
+                            <div class="row">
+                                <div class="mx-auto infoDay infoDay" id="tempMax1"></div>
+                            </div>
+                            <!-- Minimium temperature forecasted -->
+                            <div class="row">
+                                <div class="mx-auto infoDay infoDay" id="tempMin1"></div>
+                            </div>
+                            <!-- Forecasted humidity  -->
+                            <div class="row">
+                                <div class="pb-4 mx-auto infoDay infoDay" id="humidity1"></div>
+                            </div>
+
+                        </div>
+
+                        <!-- Forecast Day 2 -->
+                        <div class="col-10 col-lg-2 mx-auto mb-2 shadow cardForecastStyle">
+
+                            <div class="row">
+                                <div class="forecastDay pt-2 mx-auto mt-0 text-center text-white" id="day2"></div>
+                            </div>  
+                            <hr class="cardHR">
+                            <div class="row">
+                                <div class="mx-auto infoDay" id="weather2"></div>
+                            </div>
+                            <div class="row">
+                                <div class="mx-auto infoDay" id="icon2"></div>
+                            </div>
+                            <div class="row">
+                                <div class="mx-auto infoDay" id="tempMax2"></div>
+                            </div>
+                            <div class="row">
+                                <div class="mx-auto infoDay" id="tempMin2"></div>
+                            </div>
+                            <div class="row">
+                                <div class="pb-4 mx-auto infoDay" id="humidity2"></div>
+                            </div>
+                        </div>
+
+                        <!-- Forecast Day 3-->
+                        <div class="col-10 col-lg-2 mx-auto mb-2 shadow cardForecastStyle">
+
+                            <div class="row">
+                                <div class="forecastDay pt-2 mx-auto mt-0 text-center text-white" id="day3"></div>
+                            </div>  
+                            <hr class="cardHR">
+                            <div class="row">
+                                <div class="mx-auto infoDay" id="weather3"></div>
+                            </div>
+                            <div class="row">
+                                <div class="mx-auto infoDay" id="icon3"></div>
+                            </div>
+                            <div class="row">
+                                <div class="mx-auto infoDay" id="tempMax3"></div>
+                            </div>
+                            <div class="row">
+                                <div class="mx-auto infoDay" id="tempMin3"></div>
+                            </div>
+                            <div class="row">
+                                <div class="pb-4 mx-auto infoDay" id="humidity3"></div>
+                            </div>
+
+                        </div>
+                  
+                        <!-- Forecast Day 4 -->                                    
+                        <div class="col-10 col-lg-2 mx-auto mb-2 shadow cardForecastStyle">
+                            
+                            <div class="row">
+                                <div class="forecastDay pt-2 mx-auto mt-0 text-center text-white" id="day4"></div>
+                            </div>  
+                            <hr class="cardHR">
+                            <div class="row">
+                                <div class="mx-auto infoDay" id="weather4"></div>
+                            </div>
+                            <div class="row">
+                                <div class="mx-auto infoDay" id="icon4"></div>
+                            </div>
+                            <div class="row">
+                                <div class="mx-auto infoDay" id="tempMax4"></div>
+                            </div>
+                            <div class="row">
+                                <div class="mx-auto infoDay" id="tempMin4"></div>
+                            </div>
+                            <div class="row">
+                                <div class="pb-4 mx-auto infoDay" id="humidity4"></div>
+                            </div>
+
+                        </div>
+
+                        <!-- Forecast Day 5 -->
+                        <div class="col-10 col-lg-2 mx-auto mb-2 shadow cardForecastStyle">
+
+                            <div class="row">
+                                <div class="forecastDay pt-2 mx-auto mt-0 text-center text-white" id="day5"></div>
+                            </div>  
+                            <hr class="cardHR">
+                            <div class="row">
+                                <div class="mx-auto infoDay" id="weather5"></div>
+                            </div>
+                            <div class="row">
+                                <div class="mx-auto infoDay" id="icon5"></div>
+                            </div>
+                            <div class="row">
+                                <div class="mx-auto infoDay" id="tempMax5"></div>
+                            </div>
+                            <div class="row">
+                                <div class="mx-auto infoDay" id="tempMin5"></div>
+                            </div>
+                            <div class="row">
+                                <div class="pb-4 mx-auto infoDay" id="humidity5"></div>
+                            </div>
+
+                        </div>
                     </div>
                 </div>
 
             </div>
-        </div>
+        </section>
         </div>
         </div>
 
     </div>
+
+<!-- Footer section -->
 <footer class="mt-5 py-2 fixed-bottom text-white text-center bg-dark">&copy; Copyright</footer>
 
+    <!-- Links to JavaScript contents -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js"></script>
     <script src="assets/js/script.js"></script>
+
 </body>
 
 </html>
