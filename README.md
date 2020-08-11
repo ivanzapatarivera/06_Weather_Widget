@@ -1,6 +1,22 @@
-# 06 Server-Side APIs: Weather Dashboard
+# 06 WX'er Weather Dashboard
 
-Developers are often tasked with retrieving data from another application's API and using it in the context of their own. Third-party APIs allow developers to access their data and functionality by making requests with specific parameters to a URL. Your challenge is to build a weather dashboard that will run in the browser and feature dynamically updated HTML and CSS.
+WX'er is a single page web application that can be used either on your desktop browser and your mobile phone. 
+
+## How to use WX'er 
+
+You can search by:
+
+* City and State Name
+* City and Country Name, or
+* City and Standard Country Code
+
+This application will allow you to view current weather conditions of the city you've searched or previous searches. 
+
+## Features
+
+WX'er doesn't only provide you with current weather conditions! It also provides you with a full narration of today's weather information and the forecast for the next five days! Also, don't worry if you need change pages, when you return to WX'er, you'll see the recent searches saved for you to use at any time. 
+
+Enjoy!
 
 Use the [OpenWeather API](https://openweathermap.org/api) to retrieve weather data for cities. The documentation includes a section called "How to start" that will provide basic setup and usage instructions. Use `localStorage` to store any persistent data.
 

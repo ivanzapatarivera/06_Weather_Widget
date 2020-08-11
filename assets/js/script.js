@@ -254,7 +254,6 @@ $.ajax({
 
         if (main === "Clear") {
             generateBackground('url(assets/images/clear.jpg)');
- 
         }
 
         if (main === "Thunderstorm") {
@@ -262,58 +261,47 @@ $.ajax({
         }
 
         if (main === "Drizzle") {
-            generateBackground('url(assets/images/drizzle.jpg)');
-  
+            generateBackground('url(assets/images/drizzle.jpg)');  
         }
 
         if (main === "Rain") {
             generateBackground('url(assets/images/rain.jpg)');
-     
         }
 
         if (main === "Snow") {
             generateBackground('url(assets/images/snow.jpg)');
-  
         }
 
         if (main === "Snow") {
             generateBackground('url(assets/images/clear.jpg)');
-    
         } 
 
         if (main === "Mist") {
             generateBackground('url(assets/images/mist.jpg)');
-
         } 
 
         if (main === "Smoke") {
-            generateBackground('url(assets/images/smoke.jpg)');
-        
+            generateBackground('url(assets/images/smoke.jpg)');   
         } 
 
         if (main === "Haze") {
             generateBackground('url(assets/images/haze.jpg)');
- 
         } 
 
         if (main === "Dust") {
             generateBackground('url(assets/images/dust.jpg)');
-      
         } 
 
         if (main === "Ash") {
-            generateBackground('url(assets/images/ashes.jpg)');
-         
+            generateBackground('url(assets/images/ashes.jpg)');   
         } 
 
         if (main === "Squall") {
             generateBackground('url(assets/images/squall.jpg)');
-        
         } 
 
         if (main === "Tornado") {
-            generateBackground('url(assets/images/tornado.jpg)');
-          
+            generateBackground('url(assets/images/tornado.jpg)');  
         } 
         
         //Setting up logo and current weather data
@@ -415,8 +403,21 @@ $.ajax({
             }).then(function(UV) {
                 console.log(UV);
                 uvIndex.empty().append('UV Index: ' + UV.value);
+
+
+                if (UV.value > 8.99) {
+                    $('.uvIndex').attr('style', 'color: red;');
+                } else if (UV.value > 6.99) {
+                    $('.uvIndex').attr('style', 'color: orange;');
+                } else if (UV.value > 4.99) {
+                    $('.uvIndex').attr('style', 'color: yellow;');
+                } else {
+                    $('.uvIndex').attr('style', 'color: cyan;');
+                }
+
             })
 
+            // Callin for Weather Forecast (One Call API)
             var queryURLForecast = 'https://api.openweathermap.org/data/2.5/onecall?lat=' + latVal + '&lon=' + lonVal + '&appid=' + apiKey;
 
             $.ajax({
