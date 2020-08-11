@@ -1,62 +1,33 @@
-# 06 WX'er Weather Dashboard
+# WX'er Weather Dashboard
 
-WX'er is a single page web application that can be used either on your desktop browser and your mobile phone. 
+
+## What is WX'er
+
+WX'er is a single page web application, powered by OpenWeather, that can be used either on your desktop browser and your mobile phone. 
+
 
 ## How to use WX'er 
 
-You can search by:
+Current and forecast weather can be found searching by:
 
 * City and State Name
 * City and Country Name, or
 * City and Standard Country Code
 
-This application will allow you to view current weather conditions of the city you've searched or previous searches. 
+This application will allow to view current weather conditions of the city searched or previous ones seen. Also, it has the option to clear recent searches and start a new one. 
+
 
 ## Features
 
-WX'er doesn't only provide you with current weather conditions! It also provides you with a full narration of today's weather information and the forecast for the next five days! Also, don't worry if you need change pages, when you return to WX'er, you'll see the recent searches saved for you to use at any time. 
+WX'er doesn't only provides with current weather conditions! It also gives a full narration of today's weather information and the forecast for the next five days!
+
+Also, the user will be able to access all the recent searches when returning to WX'er as they'll be saved on the top bar, for easy access.
 
 Enjoy!
 
-Use the [OpenWeather API](https://openweathermap.org/api) to retrieve weather data for cities. The documentation includes a section called "How to start" that will provide basic setup and usage instructions. Use `localStorage` to store any persistent data.
 
-## User Story
+## Where is WX'er
 
-```
-AS A traveler
-I WANT to see the weather outlook for multiple cities
-SO THAT I can plan a trip accordingly
-```
+URL:    https://johnsbrook.github.io/06_Weather_Widget/
 
-## Acceptance Criteria
-
-```
-GIVEN a weather dashboard with form inputs
-WHEN I search for a city
-THEN I am presented with current and future conditions for that city and that city is added to the search history
-WHEN I view current weather conditions for that city
-THEN I am presented with the city name, the date, an icon representation of weather conditions, the temperature, the humidity, the wind speed, and the UV index
-WHEN I view the UV index
-THEN I am presented with a color that indicates whether the conditions are favorable, moderate, or severe
-WHEN I view future weather conditions for that city
-THEN I am presented with a 5-day forecast that displays the date, an icon representation of weather conditions, the temperature, and the humidity
-WHEN I click on a city in the search history
-THEN I am again presented with current and future conditions for that city
-WHEN I open the weather dashboard
-THEN I am presented with the last searched city forecast
-```
-
-The following image demonstrates the application functionality:
-
-![weather dashboard demo](./Assets/06-server-side-apis-homework-demo.png)
-
-## Review
-
-You are required to submit the following for review:
-
-* The URL of the deployed application.
-
-* The URL of the GitHub repository. Give the repository a unique name and include a README describing the project.
-
-- - -
-© 2019 Trilogy Education Services, a 2U, Inc. brand. All Rights Reserved.
+GitHub: https://github.com/johnsbrook/06_Weather_Widget 
