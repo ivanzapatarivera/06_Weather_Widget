@@ -44,7 +44,6 @@ function appendCity() {
     var result = searchCityST;
         result = result + "-";
 
-
         cityObj.cityArray.push(searchCity.val());
         cityObj.stateArray.push(searchState.val());
 
@@ -121,11 +120,8 @@ resultCity.on('click', function() {
         resultCityText = resultCityText.split(", ");
         cityStateArray.push(resultCityText);
 
-
         // Empty and display previous and current searched values
         cityName.empty().append(resultCityText[0] + ", " + resultCityText[1]);
-
-
 
         // Creates apiAJAXcall function call
         apiAJAXCall(resultCityText[0], resultCityText[1]);
@@ -143,6 +139,7 @@ function generateBackground(bgUrl){
     $('body').css('background-size', 'cover');
 
 }
+
 // AJAX Call
 function apiAJAXCall(city, country) {
 
@@ -168,59 +165,38 @@ $.ajax({
     var windSpeed = $('.windSpeed');
     var cityName = $('.cityName');
 
-
-
         // Establishing City and State/Country    
         var countryCurrentWeather = currentWeather.sys.country;
-
-
         var cityNameCurrentWeather = currentWeather.name;
-
-
         var cityCountry = cityNameCurrentWeather + ", " + countryCurrentWeather;
-
         cityName.empty().append(cityCountry);
 
-    
         // Establishing longitude and latitude for API UV Index
         var lonLatArray = [];
 
             // Establishing longitude
             longitude = (JSON.stringify(currentWeather.coord.lon));
-    
             lonLatArray.push(longitude);
-            // lon.empty().append("Longitude: " + longitude);
             
             // Establishing latitude
             latitude = (JSON.stringify(currentWeather.coord.lat));
-    
             lonLatArray.push(latitude);
             lonLat.empty().append("Longitude: " + longitude + " " + " - " + " " + "Latitude: " + latitude);
 
         // Checking and verifying lonLatArray values
-    
         var lonVal = lonLatArray[0];
         var latVal = lonLatArray[1];
 
-        // Consoling lonVal and latVal values
-    
-    
-
-
         // Establishing Date 
     
-        var dateGMT = new Date(currentWeather.dt * 1000);
-    
-    
+        var dateGMT = new Date(currentWeather.dt * 1000);  
         var dateDifference = (currentWeather.timezone);
 
         // Setting local time
         var dateLocal = (dateGMT + dateDifference)
             dateLocal = dateLocal.split("G");
             dateLocal = dateLocal[0];
-    
-        cityDate.empty().append(dateLocal);
-
+            cityDate.empty().append(dateLocal);
 
         // Establishing Currrent Weather Conditions and Icon
     
@@ -290,10 +266,8 @@ $.ajax({
         //Setting up logo and current weather data
     
         var description = currentWeather.weather[0].description;
-    
             currentMain.empty().append("The current weather conditions are" + '<br>' + main + " with " + description + ".");
 
-    
         var icon = currentWeather.weather[0].icon;
         var iconURL = "https://openweathermap.org/img/w/" + icon + ".png";
     
@@ -304,30 +278,24 @@ $.ajax({
         // Setting temperature and humidity
     
         var temp = currentWeather.main.temp;
-        var tempConversion = Math.round((9 / 5) * (temp - 273) + 32) + "°F";
-    
+        var tempConversion = Math.round((9 / 5) * (temp - 273) + 32) + "°F";    
             temperature.empty().append("Current temperature: " + tempConversion);
 
-        var feels_like = currentWeather.main.feels_like;
-    
-        var flConversion = Math.round((9 / 5) * (feels_like - 273) + 32) + "°F";
-    
+        var feels_like = currentWeather.main.feels_like;    
+        var flConversion = Math.round((9 / 5) * (feels_like - 273) + 32) + "°F";    
             feelslike.empty().append("Feels like: " + flConversion);
 
         var max = currentWeather.main.temp_max;
     
-        var maxConversion = Math.round((9 / 5) * (max - 273) + 32) + "°F";
-    
+        var maxConversion = Math.round((9 / 5) * (max - 273) + 32) + "°F";    
             tempmax.empty().append("Maximum Temperature: " + maxConversion);
 
         var min = currentWeather.main.temp_min;
     
-        var minConversion = Math.round((9 / 5) * (min - 273) + 32) + "°F";
-    
+        var minConversion = Math.round((9 / 5) * (min - 273) + 32) + "°F";    
             tempmin.empty().append("Minimum Temperature: " + minConversion);
 
-        var humidityP = (currentWeather.main.humidity) + "%";
-    
+        var humidityP = (currentWeather.main.humidity) + "%";    
             humidity.empty().append("Humidity: " + humidityP);
         
         // Converting wind speed from kts to mph
@@ -370,11 +338,6 @@ $.ajax({
         
                 windSpeed.empty().append(windDirection + wind + " mph");
             }
-
-    
-    
-
-            
 
     // Calling for UV query URL 
         var apiKey = '3f0e791b672eddc26b02cdefef533281';
@@ -496,17 +459,9 @@ $.ajax({
 
 
                 var newsBrief = '<h1 class="pt-5 newsBrief text-center">' + 'Forecast for <br>' + cityCountry + '</h1>' + '<p class="mt-5">' + main + ' conditions are expected with the possibility of ' + description + '.</p> <p>Today\'s temperature may rise to ' + maxConversion + '. Tonight, it may drop to ' + minConversion + '. </p> <p> However, the temperature may feel around ' + flConversion + ' to human touch, so plan accordingly for any outdoor activities. This is due to the level of humidity forecasted for today, which is measured at around ' + humidityVal + '%. </p> <p>If you wish to plan ahead, please refer to the cards below with the weather outlook for the next five days.</p> <h5>Have a pleasant day and wish you a great week ahead!</h5>';
-                $('.newsBrief').empty().append(newsBrief);
+                $('.newsBrief').empty().append(newsBrief);                
 
-                
-
-    })
-      
+    })      
   });
-
-
 }
-
-
-
 })
