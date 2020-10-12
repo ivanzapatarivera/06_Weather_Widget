@@ -11,10 +11,7 @@ var clearSearch = $('.clearSearch');
 
 // Establishes Event Listener Function
 submit.on('click', function(){
-    // event.preventDefault();
-    console.log(searchCity.val());
 var city = searchCity.val();
-    console.log(searchState.val());
 var country = searchState.val();
     apiAJAXCall(city, country);
     appendCity();
@@ -40,14 +37,13 @@ var searchCityST;
 function appendCity() {
 
     searchCityST = searchCity.val() + ", " + searchState.val();
-    console.log(searchCityST);
 
         event.preventDefault();
         deposit.append('<div class="d-inline ml-4 resultCity">' + searchCityST + '</div>');
 
     var result = searchCityST;
         result = result + "-";
-        console.log(result);
+
 
         cityObj.cityArray.push(searchCity.val());
         cityObj.stateArray.push(searchState.val());
@@ -57,16 +53,12 @@ function appendCity() {
         apiAJAXCall();
 }
 
-console.log(cityObj.cityArray, cityObj.stateArray);
-
 // Creates key and value with array within object (multiple city entries)
 function addLocalStorage() {
     event.preventDefault();
 
     var keyA = labelCityClass.parent().attr("id");
-    console.log(keyA);
     var keyB = labelStateClass.parent().attr("id");
-    console.log(keyB)
 
     var key = keyA + keyB;
     var value = searchCityST + "-";
@@ -82,7 +74,6 @@ function addLocalStorage() {
 // Append recent searches onto top bar
  var oldKeyValue = localStorage.getItem('cityState')
     oldKeyValue = oldKeyValue.split('-');
-    console.log(oldKeyValue);    
     for (var i = 0; i < oldKeyValue.length; i++) {
     deposit.append('<div class="d-inline ml-4 resultCity">' + oldKeyValue[i] + '</div>');
     }
@@ -91,20 +82,15 @@ function addLocalStorage() {
 // Retrieve the value of the last search
 if (oldKeyValue) {
 var localStorageArray = [];
-    console.log(localStorageArray);
     localStorageArray = oldKeyValue;
-    console.log(localStorageArray);
     localStorageArray.pop();
-    console.log(localStorageArray);
 
 // Deleted the last item of the array as to obtain last city that was searched and 
 // stored in local storage
 var lastLocalStorageResult = localStorageArray.pop();
-    console.log(lastLocalStorageResult);
 
     // Split the last items inside the array to divide them into the two values needed for the API call
     lastLocalStorageResult = lastLocalStorageResult.split(", ");
-    console.log(lastLocalStorageResult)
 
     // Asks the forecast box with current weather and forecast to be displayed and the welcome logo to be hidden
     if (lastLocalStorageResult) {
@@ -112,8 +98,6 @@ var lastLocalStorageResult = localStorageArray.pop();
         $('.placeholderBox').hide();
     }
 
-    console.log(lastLocalStorageResult[0]);
-    console.log(lastLocalStorageResult[1]);
     apiAJAXCall(lastLocalStorageResult[0], lastLocalStorageResult[1]);
 
 } 
@@ -127,28 +111,27 @@ resultCity.on('click', function() {
     var resultCity = $('.resultCity');
     var cityName = $('.cityName');
 
-    console.log("These are the results for: " + resultCity.text());
     
     // Created array to get values from search entries
     var cityStateArray = []; 
-        console.log(cityStateArray)
+
 
     // Separate values of search entry, split into different values and push into the array
     var resultCityText = $(this).text();
         resultCityText = resultCityText.split(", ");
         cityStateArray.push(resultCityText);
-        console.log(resultCityText);
+
 
         // Empty and display previous and current searched values
         cityName.empty().append(resultCityText[0] + ", " + resultCityText[1]);
-        console.log(resultCityText[0]);
-        console.log(resultCityText[1]);
+
+
 
         // Creates apiAJAXcall function call
         apiAJAXCall(resultCityText[0], resultCityText[1]);
 
         // Console log for cityStateArray 
-        console.log(cityStateArray);
+
 
 })
  
@@ -185,17 +168,17 @@ $.ajax({
     var windSpeed = $('.windSpeed');
     var cityName = $('.cityName');
 
-        console.log(currentWeather);
+
 
         // Establishing City and State/Country    
         var countryCurrentWeather = currentWeather.sys.country;
-        console.log(countryCurrentWeather);
+
 
         var cityNameCurrentWeather = currentWeather.name;
-        console.log(cityNameCurrentWeather);
+
 
         var cityCountry = cityNameCurrentWeather + ", " + countryCurrentWeather;
-        console.log(cityCountry);
+
         cityName.empty().append(cityCountry);
 
     
@@ -204,45 +187,45 @@ $.ajax({
 
             // Establishing longitude
             longitude = (JSON.stringify(currentWeather.coord.lon));
-            console.log(longitude);
+    
             lonLatArray.push(longitude);
             // lon.empty().append("Longitude: " + longitude);
             
             // Establishing latitude
             latitude = (JSON.stringify(currentWeather.coord.lat));
-            console.log(latitude);
+    
             lonLatArray.push(latitude);
             lonLat.empty().append("Longitude: " + longitude + " " + " - " + " " + "Latitude: " + latitude);
 
         // Checking and verifying lonLatArray values
-            console.log(lonLatArray);
+    
         var lonVal = lonLatArray[0];
         var latVal = lonLatArray[1];
 
         // Consoling lonVal and latVal values
-            console.log(lonVal)
-            console.log(latVal)
+    
+    
 
 
         // Establishing Date 
-            console.log(currentWeather.dt);
+    
         var dateGMT = new Date(currentWeather.dt * 1000);
-            console.log(dateGMT.toUTCString())
-            console.log(currentWeather.timezone);
+    
+    
         var dateDifference = (currentWeather.timezone);
 
         // Setting local time
         var dateLocal = (dateGMT + dateDifference)
             dateLocal = dateLocal.split("G");
             dateLocal = dateLocal[0];
-            console.log(dateLocal)
+    
         cityDate.empty().append(dateLocal);
 
 
         // Establishing Currrent Weather Conditions and Icon
-            console.log(currentWeather.weather[0].main);
+    
         var main = currentWeather.weather[0].main;
-            console.log(main);
+    
         // currentMain.append(main);
 
         
@@ -305,46 +288,46 @@ $.ajax({
         } 
         
         //Setting up logo and current weather data
-            console.log(currentWeather.weather[0].description);
+    
         var description = currentWeather.weather[0].description;
-            console.log(description);
+    
             currentMain.empty().append("The current weather conditions are" + '<br>' + main + " with " + description + ".");
 
-            console.log(currentWeather.weather[0].icon);
+    
         var icon = currentWeather.weather[0].icon;
         var iconURL = "https://openweathermap.org/img/w/" + icon + ".png";
-            console.log(icon);
-            console.log(iconURL);
+    
+    
             currentIcon.empty().append('<img src="' + iconURL + '" style="height: 75px; width: auto;">');
 
 
         // Setting temperature and humidity
-            console.log(currentWeather.main.temp);
+    
         var temp = currentWeather.main.temp;
         var tempConversion = Math.round((9 / 5) * (temp - 273) + 32) + "°F";
-            console.log(tempConversion);
+    
             temperature.empty().append("Current temperature: " + tempConversion);
 
         var feels_like = currentWeather.main.feels_like;
-            console.log(currentWeather.main.feels_like);
+    
         var flConversion = Math.round((9 / 5) * (feels_like - 273) + 32) + "°F";
-            console.log(flConversion);
+    
             feelslike.empty().append("Feels like: " + flConversion);
 
         var max = currentWeather.main.temp_max;
-            console.log(currentWeather.main.temp_max);
+    
         var maxConversion = Math.round((9 / 5) * (max - 273) + 32) + "°F";
-            console.log(maxConversion);
+    
             tempmax.empty().append("Maximum Temperature: " + maxConversion);
 
         var min = currentWeather.main.temp_min;
-            console.log(currentWeather.main.temp_min); 
+    
         var minConversion = Math.round((9 / 5) * (min - 273) + 32) + "°F";
-            console.log(minConversion);
+    
             tempmin.empty().append("Minimum Temperature: " + minConversion);
 
         var humidityP = (currentWeather.main.humidity) + "%";
-            console.log(humidityP);
+    
             humidity.empty().append("Humidity: " + humidityP);
         
         // Converting wind speed from kts to mph
@@ -356,40 +339,40 @@ $.ajax({
             // Conditionals to determine wind direction
             if (windDirection > 27 && windDirection < 72) {
                 windDirection = "Northeast (NE) at ";
-                console.log(wind);
+        
                 windSpeed.empty().append(windDirection + wind + " mph");
             } else if (windDirection > 71 && windDirection < 117) {
                 windDirection = "East (E) at ";
-                console.log(wind);
+        
                 windSpeed.empty().append(windDirection + wind + " mph");
             } else if (windDirection > 116 && windDirection < 162) {
                 windDirection = "Southeast (SE) at ";
-                console.log(wind);
+        
                 windSpeed.empty().append(windDirection + wind + " mph");
             } else if (windDirection > 161 && windDirection < 207) {
                 windDirection = "South (S) at ";
-                console.log(wind);
+        
                 windSpeed.empty().append(windDirection + wind + " mph");
             } else if (windDirection > 206 && windDirection < 252) {
                 windDirection = "Southwest (SW) at ";
-                console.log(wind);
+        
                 windSpeed.empty().append(windDirection + wind + " mph");
             } else if (windDirection > 251 && windDirection < 297) {
                 windDirection = "Southeast (SE) at ";
-                console.log(wind);
+        
                 windSpeed.empty().append(windDirection + wind + " mph");
             } else if (windDirection > 296 && windDirection < 337) {
                 windDirection = "Northwest (SE) at ";
-                console.log(wind);
+        
                 windSpeed.empty().append(windDirection + wind + " mph");
             } else {
                 windDirection = "North (N) at ";
-                console.log(wind);
+        
                 windSpeed.empty().append(windDirection + wind + " mph");
             }
 
-            console.log(windSpeed);
-            console.log(windDirection);
+    
+    
 
             
 
@@ -401,7 +384,7 @@ $.ajax({
                 url: queryURLuv,
                 method: "GET"
             }).then(function(UV) {
-                console.log(UV);
+        
                 uvIndex.empty().append('UV Index: ' + UV.value);
 
 
@@ -424,14 +407,14 @@ $.ajax({
                 url: queryURLForecast,
                 method: "GET"
             }).then(function(forecast) {
-                console.log(forecast);
+        
 
-                var dayArray = []; console.log(dayArray);
-                var weatherArray = []; console.log(weatherArray);
-                var iconArray = []; console.log(iconArray);
-                var tempMaxArray = []; console.log(tempMaxArray);
-                var tempMinArray = []; console.log(tempMinArray);
-                var humidityArray = []; console.log(humidityArray);
+                var dayArray = []
+                var weatherArray = []
+                var iconArray = []
+                var tempMaxArray = []
+                var tempMinArray = []
+                var humidityArray = []
 
                 for (i = 1; i < 7; i++) {
                     // #1 Day
