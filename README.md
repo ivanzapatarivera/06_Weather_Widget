@@ -28,6 +28,6 @@ Enjoy!
 
 ## Where is WX'er
 
-URL:    https://johnsbrook.github.io/06_Weather_Widget/
+URL:    https://ivanzapatarivera.github.io/06_Weather_Widget/
 
-GitHub: https://github.com/johnsbrook/06_Weather_Widget 
+GitHub: https://github.com/ivanzapatarivera/06_Weather_Widget 
